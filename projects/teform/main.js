@@ -80,12 +80,12 @@ function teForm(word, type) {
 
 function checkAnswer(answer) {
 	if (userInput.value == "" || !wanakana.isHiragana(userInput.value) || wait) {
-		if ($("#input-IME").is(':animated') == false) {
+		if ($("#input-IME").is(':animated') == false && wait == false) {
 			$("#input-IME").effect("shake");
 		}
 		return; // Only accept Hiragana answer
 	}
-	if (userInput.value == answer) {
+	else if (userInput.value == answer) {
 		userInput.style.backgroundColor = "#82e082";
 		correct += 1;
 		correctAnswerElem.innerHTML = "";
