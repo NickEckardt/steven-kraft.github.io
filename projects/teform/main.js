@@ -79,7 +79,7 @@ function teForm(word, type) {
 }
 
 function checkAnswer(answer) {
-	if (userInput.value == "" || !wanakana.isHiragana(userInput.value)) {
+	if (userInput.value == "" || !wanakana.isHiragana(userInput.value) || wait) {
 		if ($("#input-IME").is(':animated') == false) {
 			$("#input-IME").effect("shake");
 		}
@@ -100,10 +100,12 @@ function checkAnswer(answer) {
 		fadein(correctAnswerElem);
 	}
 	updateScore(correct, incorrect)
+	wait = true;
 	setTimeout(function(){
 		userInput.value = ""
 		userInput.style.backgroundColor = "white";
 		newWord();
+		wait = false;
 	}, 500);
 }
 
@@ -136,6 +138,7 @@ var kanji = false;
 var answer;
 var word
 var lastword
+var wait = false;
 
 var correctAnswerElem = document.getElementById("correct-answer");
 var typeElem = document.getElementById("type");
