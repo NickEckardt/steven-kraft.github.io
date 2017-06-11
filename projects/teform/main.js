@@ -46,35 +46,25 @@ function newWord() {
 }
 
 function teForm(word, type) {
-	stem = word.substring(0, word.length - 1);
+	stem = /(.*)(?!$)/.exec(word)[0];
 	if(type == "u") {
-		lastchar = word[word.length - 1];
-		switch (lastchar) {
-		    case "う":
-		    case "つ":
-		    case "る":
-				return stem += "って";
-			case "む":
-			case "ぶ":
-			case "ぬ":
-				return stem += "んで";
-			case "く":
-				if (word == "いく") {return "いって"}
-				if (word == "もっていく") {return "もっていって"}
-				return stem += "いて";
-			case "ぐ":
-				return stem += "いで";
-			case "す":
-				return stem += "して";
-			default:
-				return "Error";
+		lastchar = /(.$)/.exec(word)[0];
+		if (['う', 'つ', 'る'].includes(lastchar)) {return stem += "って";}
+		else if (['む', 'ぶ', 'ぬ'].includes(lastchar)) {return stem += "んで";}
+		else if (['く'].includes(lastchar)) {
+			if (word == "いく") {return "いって";}
+			if (word == "もっていく") {return "もっていって";}
+			return stem += "いて";
 		}
+		else if (['ぐ'].includes(lastchar)) {return stem += "いで";}
+		else if (["す"].includes(lastchar)) {return stem += "して";}
+		else {return "Error";}
 	}
 	else if (type == "ru") {return stem += "て";} //Ru-verbs
 	else {
 		if (word == "する") {return "して";}
 		else if (word == "くる") {return "きて";}
-	}
+	} // Irregular
 }
 
 function checkAnswer(answer) {
