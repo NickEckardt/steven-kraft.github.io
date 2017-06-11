@@ -7,17 +7,18 @@ function newWord() {
 		randNum = Math.floor(Math.random() * (uCount + ruCount + irrCount));
 		if (randNum < uCount) {
 			type = "u";
-			var word = uverbs[randNum];
+			word = uverbs[randNum];
 		} else if (randNum >= uCount && randNum < (uCount + ruCount)) {
 			type = "ru";
-			var word = ruverbs[randNum - uCount];
+			word = ruverbs[randNum - uCount];
 		} else {
 			type = "irr";
-			var word = irrverbs[randNum - uCount - ruCount];
+			word = irrverbs[randNum - uCount - ruCount];
 		}
 	} while (lastword == word) // Prevents same word from appearing twice in a row
 
 	lastword = word;
+	answer = teForm(word[0], type)
 
 	if (type == "u") {
 		$('#type').text("う-Verb")
@@ -28,21 +29,9 @@ function newWord() {
 	else if (type == "ru") {$('#type').text("る-Verb");}
 	else {$('#type').text("Irregular");}
 
-	answer = teForm(word[0], type)
-
 	// Show Kanji if Setting is Checked
 	if (kanji) {$('#word').text(word[1]);}
 	else {$('#word').text(word[0]);}
-
-	$('#kanjisetting').change(function() {
-		if (this.checked) {
-			kanji = true;
-			$('#word').text(word[1]);
-		} else {
-			kanji = false;
-			$('#word').text(word[0]);
-		}
-	});
 }
 
 function teForm(word, type) {
@@ -115,12 +104,20 @@ var word
 var lastword
 var wait = false;
 
-$('#correct-answer').hide();
-
 newWord();
 
 $('#input-IME').keydown(function(e){
    if(e.which == 13) {checkAnswer(answer);} //React to Enter Key
+});
+
+$('#kanjisetting').change(function() {
+	if (this.checked) {
+		kanji = true;
+		$('#word').text(word[1]);
+	} else {
+		kanji = false;
+		$('#word').text(word[0]);
+	}
 });
 
 $('#typesetting').change(function() {
@@ -132,3 +129,8 @@ $('#typesetting').change(function() {
 setInterval(function(){
  $('#input-IME').focus();
 });
+
+//Required for Wanakana
+(function(wk) {
+	wk.bind(document.getElementById('input-IME'));
+})(window.wanakana);
