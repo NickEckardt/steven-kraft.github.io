@@ -20,29 +20,29 @@ function newWord() {
 	lastword = word;
 
 	if (type == "u") {
-		typeElem.innerHTML = "う-Verb";
+		$('#type').text("う-Verb")
 		if (word[0] == "いく") {
-			typeElem.innerHTML += " (Exception)";
+			$('#type').text("う-Verb (Exception)");
 		}
 	}
-	else if (type == "ru") {typeElem.innerHTML = "る-Verb";}
-	else {typeElem.innerHTML = "Irregular";}
+	else if (type == "ru") {$('#type').text("る-Verb");}
+	else {$('#type').text("Irregular");}
 
 	answer = teForm(word[0], type)
 
 	// Show Kanji if Setting is Checked
-	if (kanji) {wordElem.innerHTML = word[1];}
-	else {wordElem.innerHTML = word[0];}
+	if (kanji) {$('#word').text(word[1]);}
+	else {$('#word').text(word[0]);}
 
-	kanjiSetting.onchange = function() {
-		if (kanjiSetting.checked) {
+	$('#kanjisetting').change(function() {
+		if (this.checked) {
 			kanji = true;
-			wordElem.innerHTML = word[1];
+			$('#word').text(word[1]);
 		} else {
 			kanji = false;
-			wordElem.innerHTML = word[0];
+			$('#word').text(word[0]);
 		}
-	}
+	});
 }
 
 function teForm(word, type) {
@@ -72,61 +72,46 @@ function teForm(word, type) {
 	}
 	else if (type == "ru") {return stem += "て";} //Ru-verbs
 	else {
-		console.log(word);
 		if (word == "する") {return "して";}
 		else if (word == "くる") {return "きて";}
 	}
 }
 
 function checkAnswer(answer) {
-	if (userInput.value == "" || !wanakana.isHiragana(userInput.value) || wait) {
-		if ($("#input-IME").is(':animated') == false && wait == false) {
-			$("#input-IME").effect("shake");
+	if ($('#input-IME').val() == "" || !wanakana.isHiragana($('#input-IME').val()) || wait) {
+		if ($('#input-IME').is(':animated') == false && wait == false) {
+			$('#input-IME').effect("shake");
 		}
 		return; // Only accept Hiragana answer
 	}
-	else if (userInput.value == answer) {
-		userInput.style.backgroundColor = "#82e082";
+	else if ($('#input-IME').val() == answer) {
+		$('#input-IME').css({ backgroundColor: "#82e082" });
 		correct += 1;
-		correctAnswerElem.innerHTML = "";
-		correctAnswerElem.style.opacity = 0;
+		$('#correct-answer').text("");
+		$('#correct-answer').hide();
 	} else {
-		userInput.style.backgroundColor = "#eb4d4d";
-		if (userInput.value == "いぬ") {correctAnswerElem.innerHTML = "<img src='dog.jpg'/>"}
+		$('#input-IME').css({ backgroundColor: "#eb4d4d" });
+		if ($('#input-IME').val() == "いぬ") {$('#correct-answer').html("<img src='dog.jpg'/>").fadeIn()}
 		else {
-			correctAnswerElem.innerHTML = "Last Answer: " + answer;
+			$('#correct-answer').text("Last Answer: " + answer).fadeIn();
 			incorrect += 1;
 		}
-		fadein(correctAnswerElem);
 	}
 	updateScore(correct, incorrect)
 	wait = true;
 	setTimeout(function(){
-		userInput.value = ""
-		userInput.style.backgroundColor = "white";
+		$('#input-IME').val("")
+		$('#input-IME').css({ backgroundColor: "white" });
 		newWord();
 		wait = false;
 	}, 500);
 }
 
 function updateScore(correct, incorrect) {
-	document.getElementById("correct").innerHTML = correct;
-	document.getElementById("incorrect").innerHTML = incorrect;
+	$('#correct').text(correct);
+	$('#incorrect').text(incorrect);
 	percent = Math.ceil((correct / (correct + incorrect))*100);
-	document.getElementById("percent").innerHTML = percent.toString() + "%";
-}
-
-function fadein(element) {
-    var op = 0.1;  // initial opacity
-    element.style.display = 'block';
-    var timer = setInterval(function () {
-        if (op >= 1){
-            clearInterval(timer);
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.1;
-    }, 10);
+	$('#percent').text(percent.toString() + "%");
 }
 
 var correct = 0;
@@ -140,29 +125,20 @@ var word
 var lastword
 var wait = false;
 
-var correctAnswerElem = document.getElementById("correct-answer");
-var typeElem = document.getElementById("type");
-var wordElem = document.getElementById("word");
-var userInput = document.getElementById("input-IME");
-var kanjiSetting = document.getElementById("kanjisetting")
-var typesetting = document.getElementById("typesetting")
-
-correctAnswerElem.style.opacity = 0;
+$('#correct-answer').hide();
 
 newWord();
 
-userInput.onkeydown = function(e){
-   if(e.keyCode == 13){
-     checkAnswer(answer);
-   }
-};
+$('#input-IME').keydown(function(e){
+   if(e.which == 13) {checkAnswer(answer);} //React to Enter Key
+});
 
-typesetting.onchange = function() {
-	if (typesetting.checked) {typeElem.style.display = 'none';}
-	else {typeElem.style.display = 'block';}
-}
+$('#typesetting').change(function() {
+	if (this.checked) {$('#type').hide()}
+	else {$('#type').show()}
+});
 
 //Always Focus Textbox
 setInterval(function(){
- userInput.focus();
+ $('#input-IME').focus();
 });
