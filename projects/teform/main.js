@@ -1,37 +1,27 @@
-var uverbs = [["いく", "行く"], ["きく", "聞く"], ["かく", "書く"], ["はく", "はく"], ["もっていく", "持って行く"], ["ひく", "弾く"], ["はたらく", "働く"], ["あるく", "歩く"], ["なく", "泣く"], ["みがく", "磨く"], ["かえる", "帰る"], ["ある", "ある"], ["とる", "撮る"], ["わかる", "わかる"], ["のる", "乗る"], ["やる", "やる"], ["すわる", "座る"], ["はいる", "入る"], ["かぶる", "かぶる"], ["しる", "知る"], ["のむ", "飲む"], ["よむ", "読む"], ["やすむ", "休む"], ["すむ", "住む"], ["あむ", "編む"], ["おちこむ", "落ち込む"], ["たのむ", "頼む"], ["つつむ", "包む"], ["ぬすむ", "盗む"], ["ふむ", "踏む"], ["はなす", "話す"], ["かえす", "返す"], ["けす", "消す"], ["なくす", "なくす"], ["かす", "貸す"], ["おろす", "下ろす"], ["さがす", "探す"], ["おこす", "起こす"], ["だす", "出す"], ["なおす", "直す"], ["あう", "会う"], ["かう", "買う"], ["すう", "吸う"], ["つかう", "使う"], ["てつだう", "手伝う"], ["うたう", "歌う"], ["あらう", "洗う"], ["いう", "言う"], ["おもう", "思う"], ["もらう", "もらう"], ["まつ", "待つ"], ["たつ", "立つ"], ["もつ", "持つ"], ["かつ", "勝つ"], ["うつ", "打つ"], ["そだつ", "育つ"], ["めだつ", "目立つ"], ["うけもつ", "受け持つ"], ["およぐ", "泳ぐ"], ["いそぐ", "急ぐ"], ["ぬぐ", "脱ぐ"], ["さわぐ", "騒ぐ"], ["そそぐ", "注ぐ"], ["かせぐ", "稼ぐ"], ["つなぐ", "繋ぐ"], ["ふせぐ", "防ぐ"], ["あそぶ", "遊ぶ"], ["えらぶ", "選ぶ"], ["ころぶ", "転ぶ"], ["はこぶ", "運ぶ"], ["よぶ", "呼ぶ"], ["とぶ", "飛ぶ"], ["ならぶ", "並ぶ"], ["よろこぶ", "喜ぶ"], ["むすぶ", "結ぶ"], ["まなぶ", "学ぶ"], ["しぬ", "死ぬ"]]
-var ruverbs = [["おきる", "起きる"], ["たべる", "食べる"], ["ねる", "寝る"], ["みる", "見る"], ["いる", "いる"], ["でかける", "出かける"], ["あける", "開ける"], ["おしえる", "教える"], ["おりる", "おりる"], ["かりる", "借りる"]];
-var irrverbs = [["する", "する"], ["くる", "来る"]];
-
 function newWord() {
 	do {
-		randNum = Math.floor(Math.random() * (uCount + ruCount + irrCount));
-		if (randNum < uCount) {
-			type = "u";
-			word = uverbs[randNum];
-		} else if (randNum >= uCount && randNum < (uCount + ruCount)) {
-			type = "ru";
-			word = ruverbs[randNum - uCount];
-		} else {
-			type = "irr";
-			word = irrverbs[randNum - uCount - ruCount];
-		}
+		word = verbs[Math.floor(Math.random() * verbs.length)]
 	} while (lastword == word) // Prevents same word from appearing twice in a row
 
 	lastword = word;
-	answer = teForm(word[0], type)
+	answer = teForm(word.kana, word.type)
 
-	if (type == "u") {
+	if (word.type == "u") {
 		$('#type').text("う-Verb")
-		if (word[0] == "いく") {
+		if (word.kana == "いく") {
 			$('#type').text("う-Verb (Exception)");
 		}
 	}
-	else if (type == "ru") {$('#type').text("る-Verb");}
+	else if (word.type == "ru") {$('#type').text("る-Verb");}
 	else {$('#type').text("Irregular");}
 
 	// Show Kanji if Setting is Checked
-	if (kanji) {$('#word').text(word[1]);}
-	else {$('#word').text(word[0]);}
+	if (kanji) {$('#word').text(word.kanji);}
+	else {$('#word').text(word.kana);}
+
+	// Show Kanji if Setting is Checked
+	if (kanji) {$('#word').text(word.kanji);}
+	else {$('#word').text(word.kana);}
 }
 
 function teForm(word, type) {
@@ -95,9 +85,6 @@ function updateScore(correct, incorrect) {
 
 var correct = 0;
 var incorrect = 0;
-var uCount = uverbs.length;
-var ruCount = ruverbs.length;
-var irrCount = irrverbs.length;
 var kanji = false;
 var answer;
 var word
@@ -113,10 +100,10 @@ $('#input-IME').keydown(function(e){
 $('#kanjisetting').change(function() {
 	if (this.checked) {
 		kanji = true;
-		$('#word').text(word[1]);
+		$('#word').text(word.kanji);
 	} else {
 		kanji = false;
-		$('#word').text(word[0]);
+		$('#word').text(word.kana);
 	}
 });
 
