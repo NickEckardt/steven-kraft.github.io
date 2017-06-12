@@ -56,7 +56,7 @@ function checkAnswer(answer) {
 		$('#correct-answer').hide();
 	} else {
 		$('#input-IME').css({ backgroundColor: "#eb4d4d" });
-		if ($('#input-IME').val() == "いぬ") {$('#correct-answer').html("<img src='img/dog.jpg'/>").fadeIn()}
+		if ($('#input-IME').val() == "いぬ") {$('#correct-answer').html("<img src='../img/dog.jpg'/>").fadeIn()}
 		else {
 			$('#correct-answer').text("Last Answer: " + answer).fadeIn();
 			incorrect += 1;
