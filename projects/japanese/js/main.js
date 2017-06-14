@@ -64,6 +64,13 @@ function checkAnswer(answer) {
 			incorrect += 1;
 		}
 	}
+
+	if (lastmeaning) {
+		$('#meaning').hide();
+		$('#meaning').text("Last Meaning: " + word.eng)
+		$('#meaning').fadeIn();
+	} else {$('#meaning').hide();}
+
 	updateScore(correct, incorrect)
 	wait = true;
 	setTimeout(function(){
@@ -84,11 +91,11 @@ function updateScore(correct, incorrect) {
 var correct = 0;
 var incorrect = 0;
 var kanji = false;
+var lastmeaning = true;
 var answer;
-var word
-var lastword
+var word;
+var lastword;
 var wait = false;
-$('#english').hide()
 
 newWord();
 
@@ -111,9 +118,17 @@ $('#typesetting').change(function() {
 	else {$('#type').show()}
 });
 
+$('#english').hide()
+
 $('#englishsetting').change(function() {
-	if (this.checked) {$('#english').show()}
-	else {$('#english').hide()}
+	if (this.checked) {
+		lastmeaning = false;
+		$('#english').show()
+	}
+	else {
+		lastmeaning = true;
+		$('#english').hide()
+	}
 });
 
 //Always Focus Textbox

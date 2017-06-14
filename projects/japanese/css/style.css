@@ -4,8 +4,9 @@ div {
   margin: auto;
 }
 
-p {
+#word {
   font-size: 2em;
+  margin: 16px;
 }
 
 #correct {color: #82e082;}
@@ -23,6 +24,10 @@ fieldset {
 
 #input-IME {
   font-size: 2em;
+}
+
+#english {
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 500px) {
