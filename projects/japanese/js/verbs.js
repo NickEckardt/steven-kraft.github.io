@@ -500,7 +500,7 @@ verbs = [
 	"kana":"あける",
 	"kanji":"開ける",
 	"type":"ru",
-	"eng":"develop, open up"
+	"eng":"open, unlock (doors, windows, etc.)"
 },
 {
 	"kana":"おしえる",
