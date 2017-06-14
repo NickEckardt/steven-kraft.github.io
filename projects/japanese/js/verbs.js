@@ -192,6 +192,11 @@ verbs = [
 	"eng":"switch off, turn off"
 },
 {
+	"kana":"lose, get rid of",
+	"kanji":"無くす",
+	"type":"u"
+},
+{
 	"kana":"かす",
 	"kanji":"貸す",
 	"type":"u",
@@ -322,12 +327,6 @@ verbs = [
 	"kanji":"打つ",
 	"type":"u",
 	"eng":"hit, strike"
-},
-{
-	"kana":"うつ",
-	"kanji":"打つ",
-	"type":"u",
-	"eng":"impress"
 },
 {
 	"kana":"そだつ",
@@ -514,6 +513,12 @@ verbs = [
 	"kanji":"借りる",
 	"type":"ru",
 	"eng":"borrow"
+},
+{
+	"kana":"おりる",
+	"kanji":"おりる",
+	"type":"ru",
+	"eng":"get off, land"
 },
 {
 	"kana":"する",
