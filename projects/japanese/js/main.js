@@ -18,6 +18,8 @@ function newWord() {
 	// Show Kanji if Setting is Checked
 	if (kanji) {$('#word').text(word.kanji);}
 	else {$('#word').text(word.kana);}
+
+	$('#english').text(word.eng);
 }
 
 function teForm(word, type) {
@@ -86,6 +88,7 @@ var answer;
 var word
 var lastword
 var wait = false;
+$('#english').hide()
 
 newWord();
 
@@ -106,6 +109,11 @@ $('#kanjisetting').change(function() {
 $('#typesetting').change(function() {
 	if (this.checked) {$('#type').hide()}
 	else {$('#type').show()}
+});
+
+$('#englishsetting').change(function() {
+	if (this.checked) {$('#english').show()}
+	else {$('#english').hide()}
 });
 
 //Always Focus Textbox
