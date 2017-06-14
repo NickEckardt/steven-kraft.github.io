@@ -5,8 +5,8 @@ function newWord() {
 
 	lastword = word;
 
-	if (word.type == "u") {$('#type').text("う-Verb")}
-	else if (word.type == "ru") {$('#type').text("る-Verb");}
+	if (word.type == "u") {$('#type').text("う-Verb (Godan)")}
+	else if (word.type == "ru") {$('#type').text("る-Verb (Ichidan)");}
 	else {$('#type').text("Irregular");}
 
 	answer = getAnswer(word.kana, word.type)
