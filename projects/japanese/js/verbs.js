@@ -30,12 +30,6 @@ verbs = [
 	"eng":"play (instruments)"
 },
 {
-	"kana":"ひく",
-	"kanji":"弾く",
-	"type":"u",
-	"eng":"play on"
-},
-{
 	"kana":"はたらく",
 	"kanji":"働く",
 	"type":"u",
@@ -82,12 +76,6 @@ verbs = [
 	"kanji":"やる",
 	"type":"u",
 	"eng":"do, give"
-},
-{
-	"kana":"やる",
-	"kanji":"やる",
-	"type":"u",
-	"eng":"give (to an inferior)"
 },
 {
 	"kana":"すわる",
@@ -156,12 +144,6 @@ verbs = [
 	"eng":"wrap, pack"
 },
 {
-	"kana":"つつむ",
-	"kanji":"包む",
-	"type":"u",
-	"eng":"pack; wrap"
-},
-{
 	"kana":"ぬすむ",
 	"kanji":"盗む",
 	"type":"u",
@@ -192,9 +174,10 @@ verbs = [
 	"eng":"switch off, turn off"
 },
 {
-	"kana":"lose, get rid of",
+	"kana":"なくす",
 	"kanji":"無くす",
-	"type":"u"
+	"type":"u",
+	"eng":"lose, get rid of"
 },
 {
 	"kana":"かす",
@@ -219,12 +202,6 @@ verbs = [
 	"kanji":"起こす",
 	"type":"u",
 	"eng":"wake (someone) up"
-},
-{
-	"kana":"おこす",
-	"kanji":"起こす",
-	"type":"u",
-	"eng":"bring about, cause"
 },
 {
 	"kana":"だす",
@@ -461,12 +438,6 @@ verbs = [
 	"eng":"get up, get out of bed"
 },
 {
-	"kana":"おきる",
-	"kanji":"起きる",
-	"type":"ru",
-	"eng":"occur, happen"
-},
-{
 	"kana":"たべる",
 	"kanji":"食べる",
 	"type":"ru",
@@ -489,12 +460,6 @@ verbs = [
 	"kanji":"いる",
 	"type":"ru",
 	"eng":"be present, stay"
-},
-{
-	"kana":"あける",
-	"kanji":"開ける",
-	"type":"ru",
-	"eng":"open, unlock (doors, windows, etc.)"
 },
 {
 	"kana":"あける",
