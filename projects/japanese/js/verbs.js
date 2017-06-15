@@ -18,6 +18,12 @@ verbs = [
 	"eng":"write"
 },
 {
+	"kana":"はく",
+	"kanji":"履く",
+	"type":"u",
+	"eng": "put on (shoes), wear (pants, skirt)"
+},
+{
 	"kana":"もっていく",
 	"kanji":"持って行く",
 	"type":"u",
@@ -60,10 +66,22 @@ verbs = [
 	"eng":"go back home"
 },
 {
+	"kana":"ある",
+	"kanji":"ある",
+	"type":"u",
+	"eng":"exist, there is"
+},
+{
 	"kana":"とる",
 	"kanji":"撮る",
 	"type":"u",
 	"eng":"take (a photograph), film"
+},
+{
+	"kana":"わかる",
+	"kanji":"分かる",
+	"type":"u",
+	"eng":"understand"
 },
 {
 	"kana":"のる",
@@ -88,6 +106,12 @@ verbs = [
 	"kanji":"入る",
 	"type":"u",
 	"eng":"enter"
+},
+{
+	"kana":"かぶる",
+	"kanji":"被る",
+	"type":"u",
+	"eng":"wear, put on (on one's head)"
 },
 {
 	"kana":"しる",
@@ -360,6 +384,12 @@ verbs = [
 	"eng":"earn, make money"
 },
 {
+	"kana":"つなぐ",
+	"kanji":"繋ぐ",
+	"type":"u",
+	"end":"connect (someone, something)"
+},
+{
 	"kana":"ふせぐ",
 	"kanji":"防ぐ",
 	"type":"u",
@@ -460,6 +490,12 @@ verbs = [
 	"kanji":"いる",
 	"type":"ru",
 	"eng":"be present, stay"
+},
+{
+	"kana":"でかける",
+	"kanji":"出かける",
+	"type":"ru",
+	"eng":"depart, go out"
 },
 {
 	"kana":"あける",
