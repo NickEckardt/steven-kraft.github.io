@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>{{ page.title }}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link href="../css/style.css" rel="stylesheet">
+	</head>
+
+	<body>
+			<div class="wk-content">
+				<h1>{{ page.title }}</h2>
+				<p id="word"></p>
+				<div>
+					<h3 id="english"></h3>
+				</div>
+				<input id="input-IME" autofocus="true" autocapitalize="off" autocomplete="off" autocorrect="off" type="text" lang="ja">
+      </div>
+
+			<div>
+				<h3 id="type"></h3>
+			</div>
+
+			<div>
+				<h3><span id="correct">0</span>/<span id="incorrect">0</span>/<span id="percent">100%</span></h3>
+			</div>
+
+			<div>
+				<fieldset>
+			  <legend>Settings</legend>
+			  <div>
+			    <label><input type="checkbox" id="kanjisetting" name="kanji" value="kanji">Show Kanji</label>
+			  </div>
+			  <div>
+			    <label><input type="checkbox" id="typesetting" name="type" value="type">Disable Type</label>
+			  </div>
+				<div>
+			    <label><input type="checkbox" id="englishsetting" name="english" value="english">Show English</label>
+			  </div>
+				</fieldset>
+			</div>
+
+			</br>
+			<div>
+				<h1 id="correct-answer"></h1>
+				<h2 id="meaning"></h1>
+			</div>
+
+		<script type="text/javascript" src="../js/wanakana.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/verbs.js"></script>
+		<script type="text/javascript" src="{{ page.jsname }}.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+	</body>
+</html>
