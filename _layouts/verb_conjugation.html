@@ -10,14 +10,15 @@
 	</head>
 
 	<body>
-			<div class="wk-content">
+		<a href="{{ baseurl }}/projects/japanese/" id="back">&#8249;</a>
+		<div class="wk-content">
 				<h1>{{ page.title }}</h1>
 				<p id="word"></p>
 				<div>
 					<h3 id="english"></h3>
 				</div>
 				<input id="input-IME" autofocus="true" autocapitalize="off" autocomplete="off" autocorrect="off" type="text" lang="ja">
-      </div>
+		</div>
 
 			<div>
 				<h3 id="type"></h3>
@@ -33,8 +34,8 @@
 			  <div>
 			    <label><input type="checkbox" id="kanjisetting" name="kanji" value="kanji">Show Kanji</label>
 			  </div>
-			  <div>
 			    <label><input type="checkbox" id="typesetting" name="type" value="type">Hide Type</label>
+			  <div>
 			  </div>
 				<div>
 			    <label><input type="checkbox" id="englishsetting" name="english" value="english">Show English</label>
@@ -47,6 +48,7 @@
 				<h1 id="correct-answer"></h1>
 				<h2 id="meaning"></h2>
 			</div>
+			
 
 		<script type="text/javascript" src="../js/wanakana.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
@@ -55,4 +57,5 @@
 		<script type="text/javascript" src="{{ page.jsname }}.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
 	</body>
+	
 </html>
