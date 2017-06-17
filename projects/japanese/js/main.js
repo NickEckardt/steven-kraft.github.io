@@ -38,14 +38,16 @@ function checkAnswer(answer) {
 		$('#input-IME').css({ backgroundColor: "#eb4d4d" });
 		if ($('#input-IME').val() == "いぬ") {$('#correct-answer').html("<img src='../img/dog.jpg'/>").fadeIn()}
 		else {
-			$('#correct-answer').text("Last Answer: " + answer).fadeIn();
+			$('#correct-answer').text(`Last Answer: ${answer}`).fadeIn();
 			incorrect += 1;
 		}
 	}
 
 	if (lastmeaning) {
 		$('#meaning').hide();
-		$('#meaning').text("Last Meaning: " + word.eng)
+		if (typeof meaningPrefix !== 'undefined') {
+			$('#meaning').text(`Last Meaning: ${meaningPrefix} ${word.eng}`)
+		} else {$('#meaning').text(`Last Meaning: ${word.eng}`)}
 		$('#meaning').fadeIn();
 	} else {$('#meaning').hide();}
 

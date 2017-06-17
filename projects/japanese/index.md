@@ -8,4 +8,9 @@ title: Japanese Projects
 
 * [て-Form](./teform)
 * [Potential Form](./potentialform)
+* [Negative Short Form](./negativeform)
 * More Coming Soon
+
+<br><br>
+
+[![Patreon](./img/patreon.png)](https://www.patreon.com/stevenkraft)
