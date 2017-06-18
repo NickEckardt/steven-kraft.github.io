@@ -387,7 +387,7 @@ verbs = [
 	"kana":"つなぐ",
 	"kanji":"繋ぐ",
 	"type":"u",
-	"end":"connect (someone, something)"
+	"eng":"connect (someone, something)"
 },
 {
 	"kana":"ふせぐ",
