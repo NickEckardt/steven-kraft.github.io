@@ -7,6 +7,7 @@ title: Japanese Projects
 ##### Verb Conjugation Practice
 
 * [て-Form](./teform)
+* [Causative Form](./causativeform)
 * [Potential Form](./potentialform)
 * [Negative Short Form](./negativeform)
 * More Coming Soon

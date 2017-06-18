@@ -37,9 +37,14 @@
 			    <label><input type="checkbox" id="typesetting" name="type" value="type">Hide Type</label>
 			  <div>
 			  </div>
-				<div>
+			  <div>
 			    <label><input type="checkbox" id="englishsetting" name="english" value="english">Show English</label>
 			  </div>
+				{% for setting in page.extra_settings %}
+					<div>
+						<label><input type="checkbox" id="{{ setting.id }}" name="{{ setting.id }}" value="{{ setting.id }}">{{ setting.label }}</label>
+					</div>
+				{% endfor %}
 				</fieldset>
 			</div>
 
