@@ -14,4 +14,4 @@ title: Japanese Projects
 
 <br><br>
 
-[![Patreon](./img/patreon.png)](https://www.patreon.com/stevenkraft)
+[Support Me on Patreon](https://www.patreon.com/stevenkraft)
