@@ -3,6 +3,10 @@ function getAnswer(word, type) {
 	stem = /(.*)(?!$)/.exec(word)[0];
 	if(type == "u") {
 		lastchar = /(.$)/.exec(word)[0];
+    if (word == "ある") {
+      $('#type').text("う-Verb (Godan) (Exception)");
+      return "ない";
+    }
 	  return stem + endings[lastchar] + "ない";
 	}
 	else if (type == "ru") {return stem + "ない";} //Ru-verbs
