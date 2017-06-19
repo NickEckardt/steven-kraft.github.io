@@ -72,6 +72,7 @@ function kanjimode(active) {
 	} else {
 		$('#kanjisetting').prop('checked', false);
 		$('#furisetting').prop('checked', false);
+		furi = false;
 		kanji = false;
 		$('#word').text(word.kana);
 	}
