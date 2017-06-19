@@ -12,11 +12,7 @@ function newWord() {
 	answer = getAnswer(word.kana, word.type)
 
 	// Show Kanji if Setting is Checked
-	if (kanji) {
-		$('#word').html(`<ruby>${word.kanji}<ruby>`);
-		if (furi) {$("rt").show()}
-	}
-	else {$('#word').text(word.kana);}
+	kanjimode(kanji);
 
 	$('#english').text(word.eng);
 }
@@ -67,6 +63,20 @@ function updateScore(correct, incorrect) {
 	$('#percent').text(percent.toString() + "%");
 }
 
+function kanjimode(active) {
+	if (active) {
+		$('#kanjisetting').prop('checked', true);
+		kanji = true;
+		$('#word').html(`<ruby>${word.kanji}<ruby>`);
+		if (furi) {$("rt").show()}
+	} else {
+		$('#kanjisetting').prop('checked', false);
+		$('#furisetting').prop('checked', false);
+		kanji = false;
+		$('#word').text(word.kana);
+	}
+}
+
 var correct = 0;
 var incorrect = 0;
 var kanji = false;
@@ -84,18 +94,12 @@ $('#input-IME').keydown(function(e){
 });
 
 $('#kanjisetting').change(function() {
-	if (this.checked) {
-		kanji = true;
-		$('#word').html(`<ruby>${word.kanji}<ruby>`);
-		if (furi) {$("rt").show()}
-	} else {
-		kanji = false;
-		$('#word').text(word.kana);
-	}
+	kanjimode(this.checked);
 });
 
 $('#furisetting').change(function() {
 	if (this.checked) {
+		kanjimode(true);
 		$("rt").show();
 		furi = true;
 	} else {
