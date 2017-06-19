@@ -12,11 +12,10 @@ function newWord() {
 	answer = getAnswer(word.kana, word.type)
 
 	// Show Kanji if Setting is Checked
-	if (kanji) {$('#word').text(word.kanji);}
-	else {$('#word').text(word.kana);}
-
-	// Show Kanji if Setting is Checked
-	if (kanji) {$('#word').text(word.kanji);}
+	if (kanji) {
+		$('#word').html(`<ruby>${word.kanji}<ruby>`);
+		if (furi) {$("rt").show()}
+	}
 	else {$('#word').text(word.kana);}
 
 	$('#english').text(word.eng);
@@ -71,6 +70,7 @@ function updateScore(correct, incorrect) {
 var correct = 0;
 var incorrect = 0;
 var kanji = false;
+var furi = false;
 var lastmeaning = true;
 var answer;
 var word;
@@ -86,10 +86,21 @@ $('#input-IME').keydown(function(e){
 $('#kanjisetting').change(function() {
 	if (this.checked) {
 		kanji = true;
-		$('#word').text(word.kanji);
+		$('#word').html(`<ruby>${word.kanji}<ruby>`);
+		if (furi) {$("rt").show()}
 	} else {
 		kanji = false;
 		$('#word').text(word.kana);
+	}
+});
+
+$('#furisetting').change(function() {
+	if (this.checked) {
+		$("rt").show();
+		furi = true;
+	} else {
+		$("rt").hide();
+		furi = false;
 	}
 });
 
