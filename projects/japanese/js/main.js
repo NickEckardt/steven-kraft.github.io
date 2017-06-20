@@ -68,13 +68,26 @@ function kanjimode(active) {
 		$('#kanjisetting').prop('checked', true);
 		kanji = true;
 		$('#word').html(`<ruby>${word.kanji}<ruby>`);
-		if (furi) {$("rt").show()}
+		furimode(furi);
 	} else {
 		$('#kanjisetting').prop('checked', false);
-		$('#furisetting').prop('checked', false);
-		furi = false;
 		kanji = false;
 		$('#word').text(word.kana);
+		furimode(false);
+	}
+}
+
+
+function furimode(active) {
+	if (active) {
+		$('#furisetting').prop('checked', true);
+		furi = true;
+		if (!kanji) {kanjimode(true);}
+		$("rt").show();
+	} else {
+		$('#furisetting').prop('checked', false);
+		furi = false;
+		$("rt").hide();
 	}
 }
 
@@ -92,23 +105,17 @@ newWord();
 
 $('#input-IME').keydown(function(e){
    if(e.which == 13) {checkAnswer(answer);} //React to Enter Key
+	 else if(e.which == 16 && kanji) {furimode(!furi);} //React to Space Key
 });
 
 $('#kanjisetting').change(function() {
 	kanjimode(this.checked);
 });
 
-$("rt").hide();
+//$("rt").hide(); // Start With Furigana Turned Off
 
 $('#furisetting').change(function() {
-	if (this.checked) {
-		kanjimode(true);
-		$("rt").show();
-		furi = true;
-	} else {
-		$("rt").hide();
-		furi = false;
-	}
+	furimode(this.checked);
 });
 
 
@@ -131,8 +138,8 @@ $('#englishsetting').change(function() {
 });
 
 //Always Focus Textbox
-setInterval(function(){
- $('#input-IME').focus();
+$("html").click(function() {
+	$('#input-IME').val($('#input-IME').val()).focus();
 });
 
 //Required for Wanakana
