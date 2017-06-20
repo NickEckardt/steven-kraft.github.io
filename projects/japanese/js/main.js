@@ -98,6 +98,8 @@ $('#kanjisetting').change(function() {
 	kanjimode(this.checked);
 });
 
+$("rt").hide();
+
 $('#furisetting').change(function() {
 	if (this.checked) {
 		kanjimode(true);
@@ -108,6 +110,7 @@ $('#furisetting').change(function() {
 		furi = false;
 	}
 });
+
 
 $('#typesetting').change(function() {
 	if (this.checked) {$('#type').hide()}
