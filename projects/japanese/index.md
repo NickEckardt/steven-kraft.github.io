@@ -10,6 +10,7 @@ title: Japanese Projects
 * [Causative Form](./causativeform)
 * [Conditional Form](./conditionalform)
 * [Past Short Form](./pastform)
+* [Polite Form](./politeform)
 * [Potential Form](./potentialform)
 * [Negative Form](./negativeform)
 * [Volitional Form](./volitionalform)
