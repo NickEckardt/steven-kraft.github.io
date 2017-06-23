@@ -24,7 +24,7 @@ function checkAnswer(answer) {
 		}
 		return; // Only accept Hiragana answer
 	}
-	else if ($('#input-IME').val() == answer) {
+	else if (answer.includes($('#input-IME').val())) {
 		$('#input-IME').css({ backgroundColor: "#82e082" });
 		correct += 1;
 		$('#correct-answer').text("");
@@ -33,7 +33,9 @@ function checkAnswer(answer) {
 		$('#input-IME').css({ backgroundColor: "#eb4d4d" });
 		if ($('#input-IME').val() == "いぬ") {$('#correct-answer').html("<img src='../img/dog.jpg'/>").fadeIn()}
 		else {
-			$('#correct-answer').text(`Last Answer: ${answer}`).fadeIn();
+			if (typeof answer == "string") {ansMessage = answer;}
+			else {ansMessage = answer.join(" or ");}
+			$('#correct-answer').text(`Last Answer: ${ansMessage}`).fadeIn();
 			incorrect += 1;
 		}
 	}
