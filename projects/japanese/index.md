@@ -9,10 +9,11 @@ title: Japanese Projects
 * [て-Form](./teform)
 * [Causative Form](./causativeform)
 * [Conditional Form](./conditionalform)
+* [Imperative Form](./imperativeform)
+* [Negative Form](./negativeform)
 * [Past Short Form](./pastform)
 * [Polite Form](./politeform)
 * [Potential Form](./potentialform)
-* [Negative Form](./negativeform)
 * [Volitional Form](./volitionalform)
 * More Coming Soon
 
