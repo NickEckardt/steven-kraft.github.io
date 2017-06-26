@@ -14,6 +14,7 @@ title: Japanese Projects
 * [Past Short Form](./pastform)
 * [Polite Form](./politeform)
 * [Potential Form](./potentialform)
+* [Provisional Form](./provisionalform)
 * [Volitional Form](./volitionalform)
 * More Coming Soon
 
