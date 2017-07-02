@@ -12,7 +12,7 @@ title: Japanese Projects
 * [Imperative Form](./imperativeform)
 * [Negative Form](./negativeform)
 * [Passive Form](./passiveform)
-* [Past Short Form](./pastform)
+* [Past Form](./pastform)
 * [Polite Form](./politeform)
 * [Potential Form](./potentialform)
 * [Provisional Form](./provisionalform)

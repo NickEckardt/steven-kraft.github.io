@@ -1,9 +1,8 @@
-var endings = {く:"き", す:"し", う:"い", ぐ:"ぎ", ぶ:"び", つ:"ち", む:"み", ぬ:"に", る:"り"};
-var a_endings = {く:"か", す:"さ", う:"わ", ぐ:"が", ぶ:"ば", つ:"た", む:"ま", ぬ:"な", る:"ら"};
-var neg = false;
-var polite = false;
-
-function getAnswer(word, type) {
+function getAnswer(word, type, polite=false, neg=false) {
+	var endings = {く:"き", す:"し", う:"い", ぐ:"ぎ", ぶ:"び", つ:"ち", む:"み", ぬ:"に", る:"り"};
+	var a_endings = {く:"か", す:"さ", う:"わ", ぐ:"が", ぶ:"ば", つ:"た", む:"ま", ぬ:"な", る:"ら"};
+	if ($('#politesetting').is(':visible')) {polite = $('#politesetting').is(':checked')}
+	if ($('#negsetting').is(':visible')) {neg = $('#negsetting').is(':checked')}
 	stem = /(.*)(?!$)/.exec(word)[0];
 	if(type == "u") {
     lastchar = /(.$)/.exec(word)[0];
@@ -55,14 +54,10 @@ function getAnswer(word, type) {
 	} // Irregular
 }
 
-$('#negsetting').change(function() {
-  if (this.checked) {neg = true;}
-  else {neg = false;}
-  answer = getAnswer(word.kana, word.type);
+$('#politesetting').change(function() {
+  answer = getAnswer(word.kana, word.type, this.checked);
 });
 
-$('#politesetting').change(function() {
-  if (this.checked) {polite = true;}
-  else {polite = false;}
-  answer = getAnswer(word.kana, word.type);
+$('#negsetting').change(function() {
+  answer = getAnswer(word.kana, word.type, this.checked);
 });
