@@ -24,7 +24,7 @@ function checkAnswer(answer) {
 		}
 		return; // Only accept Hiragana answer
 	}
-	else if (answer.includes($('#input-IME').val()) && Array.isArray(answer)) {
+	else if ((answer.includes($('#input-IME').val()) && Array.isArray(answer)) || answer == $('#input-IME').val()) {
 		$('#input-IME').css({ backgroundColor: "#82e082" });
 		correct += 1;
 		$('#correct-answer').text("");
