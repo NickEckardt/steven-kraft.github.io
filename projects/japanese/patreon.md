@@ -7,6 +7,7 @@ title: Patreon Supporters
 ##### Thank You So Much for the Support!
 
 * Kai
+* Josh Coneby
 
 <br><br>
 
