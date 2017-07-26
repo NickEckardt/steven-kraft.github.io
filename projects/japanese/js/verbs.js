@@ -67,7 +67,7 @@ verbs = [
 },
 {
 	"kana":"ある",
-	"kanji":"ある",
+	"kanji":"有<rp>(</rp><rt>あ</rt><rp>)</rp>る",
 	"type":"u",
 	"eng":"exist, there is"
 },
@@ -91,7 +91,7 @@ verbs = [
 },
 {
 	"kana":"やる",
-	"kanji":"やる",
+	"kanji":"遣<rp>(</rp><rt>や</rt><rp>)</rp>る",
 	"type":"u",
 	"eng":"do, give"
 },
@@ -295,7 +295,7 @@ verbs = [
 },
 {
 	"kana":"もらう",
-	"kanji":"もらう",
+	"kanji":"貰<rp>(</rp><rt>もら</rt><rp>)</rp>う",
 	"type":"u",
 	"eng":"receive"
 },
@@ -487,7 +487,7 @@ verbs = [
 },
 {
 	"kana":"いる",
-	"kanji":"いる",
+	"kanji":"居<rp>(</rp><rt>い</rt><rp>)</rp>る",
 	"type":"ru",
 	"eng":"be present, stay"
 },
@@ -517,13 +517,13 @@ verbs = [
 },
 {
 	"kana":"おりる",
-	"kanji":"おりる",
+	"kanji":"降<rp>(</rp><rt>お</rt><rp>)</rp>りる",
 	"type":"ru",
 	"eng":"get off, land"
 },
 {
 	"kana":"する",
-	"kanji":"する",
+	"kanji":"為<rp>(</rp><rt>す</rt><rp>)</rp>る",
 	"type":"irr",
 	"eng":"do, make"
 },
