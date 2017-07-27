@@ -18,6 +18,14 @@ function newWord() {
 }
 
 function checkAnswer(answer) {
+	if (wait) {
+		// Wait for enter key to be pressed again before continuing to next word
+		$('#input-IME').val("")
+		$('#input-IME').css({ backgroundColor: "white" });
+		newWord();
+		wait = false;
+		return;
+	}
 	if ($('#input-IME').val() == "" || !wanakana.isHiragana($('#input-IME').val()) || wait) {
 		if ($('#input-IME').is(':animated') == false && wait == false) {
 			$('#input-IME').effect("shake");
@@ -50,12 +58,17 @@ function checkAnswer(answer) {
 
 	updateScore(correct, incorrect)
 	wait = true;
-	setTimeout(function(){
-		$('#input-IME').val("")
-		$('#input-IME').css({ backgroundColor: "white" });
-		newWord();
-		wait = false;
-	}, 500);
+	
+	if ($("#fastsetting").is(':checked')) {
+		setTimeout(function(){
+			if (wait) {
+				$('#input-IME').val("")
+				$('#input-IME').css({ backgroundColor: "white" });
+				newWord();
+				wait = false;
+			}
+		}, 500);
+	}
 }
 
 function updateScore(correct, incorrect) {

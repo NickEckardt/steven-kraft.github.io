@@ -38,11 +38,14 @@
 				<div>
 			    <label><input type="checkbox" id="furisetting" name="furigana" value="furigana">Show Furigana (Shift)</label>
 			  </div>
-				<div>
+				<div class="inline">
 			    <label><input type="checkbox" id="typesetting" name="type" value="type">Hide Type</label>
 			  </div>
-			  <div>
+			  <div class="inline">
 			    <label><input type="checkbox" id="englishsetting" name="english" value="english">Show English</label>
+			  </div>
+			  <div>
+			    <label><input type="checkbox" id="fastsetting" name="fast" value="fast">Fast Mode</label>
 			  </div>
 				{% for setting in page.extra_settings %}
 					<div>
