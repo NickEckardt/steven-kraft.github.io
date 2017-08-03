@@ -8,6 +8,7 @@ title: Patreon Supporters
 
 * Kai
 * Josh Coneby
+* Liz Ellis
 
 <br><br>
 
