@@ -9,6 +9,7 @@ title: Patreon Supporters
 * Kai
 * Josh Coneby
 * Liz Ellis
+* Namidagawa
 
 <br><br>
 
