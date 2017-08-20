@@ -17,6 +17,10 @@ title: Japanese Projects
 * [Potential Form](./potentialform)
 * [Provisional Form](./provisionalform)
 * [Volitional Form](./volitionalform)
+
+##### Verb Conjugation Practice
+* [Numbers (WIP)](./numbers)
+
 * More Coming Soon
 
 <br><br>
