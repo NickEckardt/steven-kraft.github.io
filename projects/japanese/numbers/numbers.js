@@ -1,4 +1,4 @@
-function getAnswer(number) {
+function getAnswer(number, issen = true) {
   numbers = {
     "0":[""], "1":["いち"], "2":["に"], "3":["さん"], "4":["よん", "し"],
     "5":["ご"], "6":["ろく"], "7":["なな","しち"], "8":["はち"], "9":["く", "きゅう"],
@@ -48,6 +48,7 @@ function getAnswer(number) {
       "6":"ろくせん", "7":"ななせん", "8":"はっせん", "9":"きゅうせん",
     }
     thousands = thousand_nums[number.substring(0,1)]
+    if (thousands == "せん" && issen) {thousands = "いっせん"}
     suffix = getAnswer(number.substring(1,4))
     for (var i = 0; i < suffix.length; i++) {
       answer.push(thousands + suffix[i])
