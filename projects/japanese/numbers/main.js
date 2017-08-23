@@ -1,6 +1,6 @@
 function newNumber() {
 	do {
-		number = Math.floor(Math.random() * 10000).toString()
+		number = Math.floor(Math.random() * Math.pow(10, digits)).toString()
 	} while (lastnumber == number) // Prevents same number from appearing twice in a row
 
 	lastnumber = number;
@@ -67,8 +67,17 @@ var answer;
 var number;
 var lastnumber;
 var wait = false;
+var digits = 4;
+$('#digits').value = digits
 
 newNumber();
+
+$('#digits').change(function() {
+	digits = $('#digits').val()
+	console.log(digits);
+	$('#digits-label').text(digits)
+	newNumber();
+});
 
 $('#input-IME').keydown(function(e){
    if(e.which == 13) {checkAnswer(answer);} //React to Enter Key

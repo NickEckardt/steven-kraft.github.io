@@ -7,7 +7,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<link href="../css/numbers.css" rel="stylesheet">
+
 	</head>
 
 	<body>
@@ -33,7 +35,9 @@
 				<fieldset>
 			  <legend>Settings</legend>
 			  <div>
-			    <label><input type="checkbox" id="fastsetting" name="fast" value="fast">Fast Mode</label>
+
+					<label><input type="range"  id="digits" name="digits" value="4" min="1" max="4">Max Digits: <span id="digits-label">4</span></label>
+			    <label><input type="checkbox" id="fastsetting" name="fast">Fast Mode</label>
 			  </div>
 				</fieldset>
 			</div>
@@ -43,7 +47,7 @@
 				<h1 id="correct-answer"></h1>
 				<h2 id="meaning"></h2>
 			</div>
-			
+
 			<footer><center>This project is a work in progress please <a href="mailto:steven.kraftjp@gmail.com?Subject=Numbers%20Project%20Issue" target="_top">email me</a> to report any problems.</center></footer>
 
 		<script src="../../../js/jquery-1.12.4.min.js"></script>
