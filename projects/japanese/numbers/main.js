@@ -74,7 +74,6 @@ newNumber();
 
 $('#digits').change(function() {
 	digits = $('#digits').val()
-	console.log(digits);
 	$('#digits-label').text(digits)
 	newNumber();
 });
