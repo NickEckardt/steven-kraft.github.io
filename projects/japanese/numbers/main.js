@@ -75,7 +75,8 @@ newNumber();
 $('#digits').change(function() {
 	digits = $('#digits').val()
 	$('#digits-label').text(digits)
-	newNumber();
+	if (wait) {checkAnswer(answer)}
+	else {newNumber();}
 });
 
 $('#input-IME').keydown(function(e){
