@@ -32,7 +32,7 @@ function getAnswer(number, issen = true, multiple = true) {
       "9":"きゅうひゃく",
     }
     hundreds = hundred_nums[number.substring(0,1)]
-    suffix = getAnswer(number.substring(1,3))
+    suffix = getAnswer(number.substring(1,3), true, false)
     answer = hundreds + suffix
   }
   if (number.length == 4) {
@@ -42,7 +42,7 @@ function getAnswer(number, issen = true, multiple = true) {
     }
     thousands = thousand_nums[number.substring(0,1)]
     if (thousands == "せん" && issen) {thousands = "いっせん"}
-    suffix = getAnswer(number.substring(1,4))
+    suffix = getAnswer(number.substring(1,4), true, false)
     answer = thousands + suffix
   }
   if (number.length >= 5 && number.length <= 8) {
