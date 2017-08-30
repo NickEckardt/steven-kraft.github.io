@@ -20,6 +20,7 @@ title: Japanese Projects
 
 ##### Numbers & Other
 * [Numbers (WIP)](./numbers)
+* [Time (WIP)](./time)
 * More Coming Soon
 
 <br><br>
