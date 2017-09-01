@@ -1,16 +1,25 @@
 function newTime() {
+	eng_ampm = ["", " A.M.", " P.M."]
 	do {
 		minute = Math.floor(Math.random() * 60)
 		hour = Math.floor(Math.random() * 12) + 1
 	} while (lastminute == minute) // Prevents same minutes from appearing twice in a row
 
 	lastminute = minute;
-	answer = getAnswer(hour, minute)
+
+	if ($("#ampmsetting").is(':checked')) {
+		ampm = Math.floor(Math.random() * 2) + 1
+		answer = getAnswer(hour, minute, ampm)
+	}
+	else {
+		ampm = 0
+		answer = getAnswer(hour, minute)
+	}
 
 	var minstr = minute.toString()
 	if (minstr.length == 1) {minstr = "0" + minstr}
 
-	$('#time').text(hour.toString() + ":" + minstr);
+	$('#time').text(hour.toString() + ":" + minstr + eng_ampm[ampm]);
 }
 
 function checkAnswer(answer) {
@@ -81,6 +90,8 @@ newTime();
 $('#input-IME').keydown(function(e){
    if(e.which == 13) {checkAnswer(answer);} //React to Enter Key
 });
+
+$('#ampmsetting').change(function() {newTime()});
 
 //Always Focus Textbox
 $("html").click(function() {
