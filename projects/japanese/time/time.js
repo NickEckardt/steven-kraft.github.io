@@ -3,6 +3,8 @@ function getAnswer(hour, minute) {
   minutes = ["", "いっ", "に", "さん", "よん", "ご", "ろっ", "しち", "はっ", "きゅう"]
   tens = ["", "", "に", "さん", "よん", "ご"]
 
+  answers = []
+
   if (minute == 0) {minkana = ""}
   else if (minute < 10) {minkana = minutes[minute]}
   else if (minute % 10 == 0) {minkana = tens[Math.floor(minute/10)] + "じゅっ"}
@@ -12,5 +14,7 @@ function getAnswer(hour, minute) {
   else if (minkana.slice(-1) == "っ" || minkana.slice(-1) == "ん") {mincounter = "ぷん"}
   else {mincounter = "ふん"}
 
-  return hours[hour] + "じ" + minkana + mincounter
+  answers.push(hours[hour] + "じ" + minkana + mincounter)
+  if (minute == 30) {answers.push(hours[hour] + "じはん")}
+  return answers
 }
