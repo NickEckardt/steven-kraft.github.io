@@ -19,8 +19,8 @@ title: Japanese Projects
 * [Volitional Form](./volitionalform)
 
 ##### Numbers & Other
-* [Numbers (WIP)](./numbers)
-* [Time (WIP)](./time)
+* [Numbers](./numbers)
+* [Time](./time)
 * More Coming Soon
 
 <br><br>
