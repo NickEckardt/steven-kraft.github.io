@@ -3,8 +3,19 @@ function newNumber() {
 		number = Math.floor(Math.random() * Math.pow(10, digits)).toString()
 	} while (lastnumber == number) // Prevents same number from appearing twice in a row
 
-	lastnumber = number;
 	answer = getAnswer(number)
+	lastnumber = number;
+
+	if (reverse) {
+		var tempnum = number;
+		if (tempnum < 10) {
+			if (answer.length == 1) {number = answer[0];}
+			else {number = answer[Math.floor(Math.random() * 2)];}
+		}
+		else {number = answer;}
+		answer = tempnum;
+	}
+
 	$('#number').text(number);
 }
 
@@ -17,7 +28,7 @@ function checkAnswer(answer) {
 		wait = false;
 		return;
 	}
-	if ($('#input-IME').val() == "" || !wanakana.isHiragana($('#input-IME').val()) || wait) {
+	if ($('#input-IME').val() == "" || (!wanakana.isHiragana($('#input-IME').val()) && !reverse) || wait) {
 		if ($('#input-IME').is(':animated') == false && wait == false) {
 			$('#input-IME').effect("shake");
 		}
@@ -67,8 +78,9 @@ var answer;
 var number;
 var lastnumber;
 var wait = false;
+var reverse = $("#reversesetting").is(':checked');
 var digits = 4;
-$('#digits').value = digits
+$('#digits').val(4);
 
 newNumber();
 
@@ -78,6 +90,11 @@ $('#digits').change(function() {
 	if (wait) {checkAnswer(answer)}
 	else {newNumber();}
 });
+
+$('#reversesetting').change(function() {
+	reverse = $("#reversesetting").is(':checked');
+	newNumber();
+})
 
 $('#input-IME').keydown(function(e){
    if(e.which == 13) {checkAnswer(answer);} //React to Enter Key
