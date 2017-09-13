@@ -46,7 +46,7 @@ function getAnswer(number, issen = true, multiple = true) {
     answer = thousands + suffix
   }
   if (number.length >= 5 && number.length <= 8) {
-    prefix = getAnswer(number.substring(0,number.length-4))
+    prefix = getAnswer(number.substring(0,number.length-4), false, false)
     suffix = getAnswer(number.substring(number.length-4, number.length))
     answer = prefix + "まん" + suffix
   }
