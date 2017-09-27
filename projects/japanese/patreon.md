@@ -11,6 +11,7 @@ title: Patreon Supporters
 * Liz Ellis
 * Namidagawa
 * Martin Linney
+* Kristy
 
 <br><br>
 
