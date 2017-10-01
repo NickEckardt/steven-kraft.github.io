@@ -19,6 +19,7 @@ title: Japanese Projects
 * [Volitional Form](./volitionalform)
 
 ##### Numbers & Other
+* [Days of the Month](./days)
 * [Numbers](./numbers)
 * [Time](./time)
 * More Coming Soon
