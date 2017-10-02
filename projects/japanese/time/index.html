@@ -16,6 +16,7 @@
 		<a href="/projects/japanese/" id="back">&#8249;</a>
 		<div class="wk-content">
 				<h1>Japanese Time</h1>
+			</br>
 				<p id="time"></p>
 				<div>
 					<h3 id="english"></h3>
@@ -45,12 +46,14 @@
 				<h2 id="meaning"></h2>
 			</div>
 
+			<div><a id="darkmode" href="javascript:void(0)">🌙</a></div>
 
 		<script src="../../../js/jquery-1.12.4.min.js"></script>
 		<script src="../../../js/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../js/wanakana.min.js"></script>
 		<script type="text/javascript" src="time.js"></script>
 		<script type="text/javascript" src="main.js"></script>
+		<script>$("#darkmode").click(function(){$("body").hasClass("dark")?($("body").removeClass("dark"),$("#darkmode").text("🌙")):($("body").addClass("dark"),$("#darkmode").text("☀️"))});</script>
 	</body>
 
 </html>

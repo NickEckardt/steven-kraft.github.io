@@ -9,13 +9,13 @@
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<link href="../css/style.css" rel="stylesheet">
-    <style>#days {font-size: 2em; margin: 16px;}</style>
 	</head>
 
 	<body>
 		<a href="/projects/japanese/" id="back">&#8249;</a>
 		<div class="wk-content">
 				<h1>Japanese Days of the Month</h1>
+			</br>
 				<p id="day" style="font-size: 2em; margin: 16px;"></p>
 				<div>
 					<h3 id="english"></h3>
@@ -44,13 +44,16 @@
 				<h2 id="meaning"></h2>
 			</div>
 
-			<footer><center>This project is a work in progress please <a href="mailto:steven.kraftjp@gmail.com?Subject=Days%20Project%20Issue" target="_top">email me</a> to report any problems.</center></footer>
+			<div><a id="darkmode" href="javascript:void(0)">🌙</a></div>
+
+			</br><footer><center>This project is a work in progress please <a href="mailto:steven.kraftjp@gmail.com?Subject=Days%20Project%20Issue" target="_top">email me</a> to report any problems.</center></footer>
 
 		<script src="../../../js/jquery-1.12.4.min.js"></script>
 		<script src="../../../js/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../js/wanakana.min.js"></script>
 		<script type="text/javascript" src="days.js"></script>
 		<script type="text/javascript" src="main.js"></script>
+		<script>$("#darkmode").click(function(){$("body").hasClass("dark")?($("body").removeClass("dark"),$("#darkmode").text("🌙")):($("body").addClass("dark"),$("#darkmode").text("☀️"))});</script>
 	</body>
 
 </html>

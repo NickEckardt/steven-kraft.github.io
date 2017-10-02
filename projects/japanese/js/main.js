@@ -152,6 +152,17 @@ $('#englishsetting').change(function() {
 	}
 });
 
+//Dark Mode
+$("#darkmode").click(function(){
+	if ($("body").hasClass("dark")) {
+		$("body").removeClass("dark")
+		$("#darkmode").text("🌙")
+	} else {
+		$("body").addClass("dark")
+		$("#darkmode").text("☀️")
+	}
+});
+
 //Always Focus Textbox
 $("html").click(function() {
 	$('#input-IME').val($('#input-IME').val()).focus();
