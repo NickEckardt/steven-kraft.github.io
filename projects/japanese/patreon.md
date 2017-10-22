@@ -12,6 +12,7 @@ title: Patreon Supporters
 * Namidagawa
 * Martin Linney
 * Kristy
+* Miles Gard
 
 <br><br>
 
