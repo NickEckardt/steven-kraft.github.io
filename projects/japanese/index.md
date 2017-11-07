@@ -18,11 +18,14 @@ title: Japanese Projects
 * [Provisional Form](./provisionalform)
 * [Volitional Form](./volitionalform)
 
-##### Numbers & Other
+##### Numbers & Counters
 * [Days of the Month](./days)
 * [Numbers](./numbers)
 * [Time](./time)
 * More Coming Soon
+
+##### Other
+* [Watch Japan](http://watchjapan.steven-kraft.com/)
 
 <br><br>
 
