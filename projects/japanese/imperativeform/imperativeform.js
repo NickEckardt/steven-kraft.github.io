@@ -1,9 +1,13 @@
-function getAnswer(word, type, polite=false) {
+function getAnswer(word, type, polite=false, neg=false) {
   if ($('#politesetting').is(':visible')) {polite = $('#politesetting').is(':checked')}
+  if ($('#negsetting').is(':visible')) {neg = $('#negsetting').is(':checked')}
 
+
+  if (neg && !polite) {return word + "な";}
   var endings = {く:"け", す:"せ", う:"え", ぐ:"げ", ぶ:"べ", つ:"て", む:"め", ぬ:"ね", る:"れ"};
 	stem = /(.*)(?!$)/.exec(word)[0];
-  if (polite) {ending = "なさい";}
+  if (polite && neg) {ending = "なさるな";}
+  else if (polite) {ending = "なさい";}
   else {ending = "ろ"}
 
 	if(type == "u") {
@@ -34,5 +38,9 @@ function getAnswer(word, type, polite=false) {
 }
 
 $('#politesetting').change(function() {
+  answer = getAnswer(word.kana, word.type, this.checked);
+});
+
+$('#negsetting').change(function() {
   answer = getAnswer(word.kana, word.type, this.checked);
 });
