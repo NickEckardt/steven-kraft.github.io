@@ -1,8 +1,11 @@
-function getAnswer(word, type, polite=false) {
+function getAnswer(word, type, polite=false, neg=false) {
 	if ($('#politesetting').is(':visible')) {polite = $('#politesetting').is(':checked')}
+	if ($('#negsetting').is(':visible')) {neg = $('#negsetting').is(':checked')}
 	var endings = {く:"け", す:"せ", う:"え", ぐ:"げ", ぶ:"べ", つ:"て", む:"め", ぬ:"ね", る:"れ"};
 	var meaningPrefix = "can"
-	if (polite) {ending = "ます"}
+	if (polite && neg) {ending = "ません"}
+	else if (polite) {ending = "ます"}
+	else if (neg) {ending = "ない"}
 	else {ending = "る"}
 	stem = /(.*)(?!$)/.exec(word)[0];
 	if(type == "u") {
@@ -17,5 +20,9 @@ function getAnswer(word, type, polite=false) {
 }
 
 $('#politesetting').change(function() {
+  answer = getAnswer(word.kana, word.type);
+});
+
+$('#negsetting').change(function() {
   answer = getAnswer(word.kana, word.type);
 });
