@@ -1,7 +1,20 @@
-function getAnswer(word, type, polite=false) {
-	if ($('#politesetting').is(':visible')) {polite = $('#politesetting').is(':checked')}
+function getAnswer(word, type, opts = {polite:false}) {
+	rand = $('#randomsetting').is(':visible')
+	if(rand && $('#randomsetting').is(':checked')) {
+		for (opt in opts) {opts[opt] = Math.random() >= 0.5;}
+	}
+	else {
+		$(".opt").each(function( index ) {
+			opts[$(this).prop("name")] = $(this).is(':checked')
+		});
+	}
 
-	if (polite) {
+	var randLabel = "Form"
+	if(opts.polite) {randLabel = "Polite " + randLabel}
+	else {randLabel = "Plain " + randLabel}
+	$('#random').text(randLabel);
+
+	if (opts.polite) {
 		var ending = "ましょう"
 		var endings = {く:"き", す:"し", う:"い", ぐ:"ぎ", ぶ:"び", つ:"ち", む:"み", ぬ:"に", る:"り"};
 	}
@@ -17,11 +30,11 @@ function getAnswer(word, type, polite=false) {
 	  return stem + endings[lastchar] + ending;
 	}
 	else if (type == "ru") {
-		if (polite) {return stem + ending}
+		if (opts.polite) {return stem + ending}
 		return stem + "よう";
 	} //Ru-verbs
 	else {
-		if (!polite) {
+		if (!opts.polite) {
 			ending = "よう"
 			if (word == "くる") {return "こ" + ending;}
 		}
@@ -30,6 +43,5 @@ function getAnswer(word, type, polite=false) {
 	} // Irregular
 }
 
-$('#politesetting').change(function() {
-  answer = getAnswer(word.kana, word.type, this.checked);
-});
+$('.opt').change(function() {answer = getAnswer(word.kana, word.type);});
+$('#randomsetting').change(function() {answer = getAnswer(word.kana, word.type);});

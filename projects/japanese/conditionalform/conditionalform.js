@@ -1,15 +1,29 @@
-function getAnswer(word, type, polite=false, neg=false) {
+function getAnswer(word, type, opts = {neg:false, polite:false}) {
+	rand = $('#randomsetting').is(':visible')
+	if(rand && $('#randomsetting').is(':checked')) {
+		for (opt in opts) {opts[opt] = Math.random() >= 0.5;}
+	}
+	else {
+		$(".opt").each(function( index ) {
+			opts[$(this).prop("name")] = $(this).is(':checked')
+		});
+	}
+
+	var randLabel = "Form"
+	if(opts.polite) {randLabel = "Polite " + randLabel}
+	else {randLabel = "Plain " + randLabel}
+	if(opts.neg) {randLabel = "Negative " + randLabel}
+	$('#random').text(randLabel);
+
 	var pol_endings = {く:"き", す:"し", う:"い", ぐ:"ぎ", ぶ:"び", つ:"ち", む:"み", ぬ:"に", る:"り"};
 	var neg_endings = {く:"か", す:"さ", う:"わ", ぐ:"が", ぶ:"ば", つ:"た", む:"ま", ぬ:"な", る:"ら"};
-	if ($('#politesetting').is(':visible')) {polite = $('#politesetting').is(':checked')}
-	if ($('#negsetting').is(':visible')) {neg = $('#negsetting').is(':checked')}
 
 	stem = /(.*)(?!$)/.exec(word)[0];
 	if(type == "u") {
 		lastchar = /(.$)/.exec(word)[0];
-		if (polite && neg) {return stem + pol_endings[lastchar] + "ませんでしたら";}
-		if (neg) {return stem + neg_endings[lastchar] + "なかったら";}
-		if (polite) {return stem + pol_endings[lastchar] + "ましたら";}
+		if (opts.polite && opts.neg) {return stem + pol_endings[lastchar] + "ませんでしたら";}
+		if (opts.neg) {return stem + neg_endings[lastchar] + "なかったら";}
+		if (opts.polite) {return stem + pol_endings[lastchar] + "ましたら";}
 		if (['う', 'つ', 'る'].includes(lastchar)) {return stem + "ったら";}
 		else if (['む', 'ぶ', 'ぬ'].includes(lastchar)) {return stem + "んだら";}
 		else if (['く'].includes(lastchar)) {
@@ -24,21 +38,21 @@ function getAnswer(word, type, polite=false, neg=false) {
 		else {return "Error";}
 	}
 	else if (type == "ru") {
-		if (polite && neg) {return stem + "ませんでしたら";}
-		if (neg) {return stem + "なかったら";}
-		if (polite) {return stem + "ましたら";}
+		if (opts.polite && opts.neg) {return stem + "ませんでしたら";}
+		if (opts.neg) {return stem + "なかったら";}
+		if (opts.polite) {return stem + "ましたら";}
 		return stem + "たら";
 	} //Ru-verbs
 	else {
-		if (polite && neg) {
+		if (opts.polite && opts.neg) {
 			if (word == "する") {return "しませんでしたら";}
 			else if (word == "くる") {return "きませんでしたら";}
 		}
-		if (polite) {
+		if (opts.polite) {
 			if (word == "する") {return "しましたら";}
 			else if (word == "くる") {return "きましたら";}
 		}
-		if (neg) {
+		if (opts.neg) {
 			if (word == "する") {return "しなかったら";}
 			else if (word == "くる") {return "こなかったら";}
 		}
@@ -47,10 +61,5 @@ function getAnswer(word, type, polite=false, neg=false) {
 	} // Irregular
 }
 
-$('#politesetting').change(function() {
-  answer = getAnswer(word.kana, word.type, this.checked);
-});
-
-$('#negsetting').change(function() {
-  answer = getAnswer(word.kana, word.type, this.checked);
-});
+$('.opt').change(function() {answer = getAnswer(word.kana, word.type);});
+$('#randomsetting').change(function() {answer = getAnswer(word.kana, word.type);});

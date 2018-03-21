@@ -58,7 +58,7 @@ function checkAnswer(answer) {
 
 	updateScore(correct, incorrect)
 	wait = true;
-	
+
 	if ($("#fastsetting").is(':checked')) {
 		setTimeout(function(){
 			if (wait) {
@@ -91,7 +91,6 @@ function kanjimode(active) {
 		furimode(false);
 	}
 }
-
 
 function furimode(active) {
 	if (active) {
@@ -149,6 +148,19 @@ $('#englishsetting').change(function() {
 	else {
 		lastmeaning = true;
 		$('#english').hide()
+	}
+});
+
+$('#random').hide()
+
+$('#randomsetting').change(function() {
+	if (this.checked) {
+		$('#random').show()
+		$(".opt").attr("disabled", true);
+	}
+	else {
+		$('#random').hide()
+		$(".opt").removeAttr("disabled");
 	}
 });
 

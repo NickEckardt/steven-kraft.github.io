@@ -1,19 +1,31 @@
-function getAnswer(word, type, polite=false, neg=false) {
-  if ($('#politesetting').is(':visible')) {polite = $('#politesetting').is(':checked')}
-  if ($('#negsetting').is(':visible')) {neg = $('#negsetting').is(':checked')}
+function getAnswer(word, type, opts = {neg:false, polite:false}) {
+  rand = $('#randomsetting').is(':visible')
+	if(rand && $('#randomsetting').is(':checked')) {
+		for (opt in opts) {opts[opt] = Math.random() >= 0.5;}
+	}
+	else {
+		$(".opt").each(function( index ) {
+			opts[$(this).prop("name")] = $(this).is(':checked')
+		});
+	}
 
+	var randLabel = "Form"
+	if(opts.polite) {randLabel = "Polite " + randLabel}
+	else {randLabel = "Plain " + randLabel}
+	if(opts.neg) {randLabel = "Negative " + randLabel}
+	$('#random').text(randLabel);
 
-  if (neg && !polite) {return word + "な";}
+  if (opts.neg && !opts.polite) {return word + "な";}
   var endings = {く:"け", す:"せ", う:"え", ぐ:"げ", ぶ:"べ", つ:"て", む:"め", ぬ:"ね", る:"れ"};
 	stem = /(.*)(?!$)/.exec(word)[0];
-  if (polite && neg) {ending = "なさるな";}
-  else if (polite) {ending = "なさい";}
+  if (opts.polite && opts.neg) {ending = "なさるな";}
+  else if (opts.polite) {ending = "なさい";}
   else {ending = "ろ"}
 
 	if(type == "u") {
     lastchar = /(.$)/.exec(word)[0];
 
-    if (polite) {
+    if (opts.polite) {
       endings = {く:"き", す:"し", う:"い", ぐ:"ぎ", ぶ:"び", つ:"ち", む:"み", ぬ:"に", る:"り"};
       return stem + endings[lastchar] + ending;
     }
@@ -22,7 +34,7 @@ function getAnswer(word, type, polite=false, neg=false) {
 	}
 	else if (type == "ru") {
     if (word == "くれる") {
-      if (polite) {return "くれなさるな"}
+      if (opts.polite) {return "くれなさるな"}
       $('#type').text("る-Verb (Ichidan) (Exception)");
       return ["くれ", "くれろ"];
     }
@@ -31,16 +43,11 @@ function getAnswer(word, type, polite=false, neg=false) {
 	else {
 		if (word == "する") {return "し" + ending;}
 		else if (word == "くる") {
-      if (polite) {return "き" + ending;}
+      if (opts.polite) {return "き" + ending;}
       return "こい";
     }
 	} // Irregular
 }
 
-$('#politesetting').change(function() {
-  answer = getAnswer(word.kana, word.type, this.checked);
-});
-
-$('#negsetting').change(function() {
-  answer = getAnswer(word.kana, word.type, this.checked);
-});
+$('.opt').change(function() {answer = getAnswer(word.kana, word.type);});
+$('#randomsetting').change(function() {answer = getAnswer(word.kana, word.type);});

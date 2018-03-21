@@ -14,9 +14,9 @@
 		<a href="/projects/japanese/" id="back">&#8249;</a>
 		<div class="wk-content">
 				<h1>{{ page.title }}</h1>
-				</br>
 				<p id="word"></p>
 				<div>
+					<h3 id="random"></h3>
 					<h3 id="english"></h3>
 				</div>
 				<input id="input-IME" autofocus="true" autocapitalize="off" autocomplete="off" autocorrect="off" type="text" lang="ja">
@@ -34,34 +34,39 @@
 				<fieldset>
 			  <legend>Settings</legend>
 			  <div>
-			    <label><input type="checkbox" id="kanjisetting" name="kanji" value="kanji">Show Kanji</label>
+			    <label><input type="checkbox" id="kanjisetting" value="kanji">Show Kanji</label>
 			  </div>
 				<div>
-			    <label><input type="checkbox" id="furisetting" name="furigana" value="furigana">Show Furigana (Shift)</label>
+			    <label><input type="checkbox" id="furisetting" value="furigana">Show Furigana (Shift)</label>
 			  </div>
 				<div class="inline">
-			    <label><input type="checkbox" id="typesetting" name="type" value="type">Hide Type</label>
+			    <label><input type="checkbox" id="typesetting" value="type">Hide Type</label>
 			  </div>
 			  <div class="inline">
-			    <label><input type="checkbox" id="englishsetting" name="english" value="english">Show English</label>
+			    <label><input type="checkbox" id="englishsetting" value="english">Show English</label>
 			  </div>
 			  <div>
-			    <label><input type="checkbox" id="fastsetting" name="fast" value="fast">Fast Mode</label>
+			    <label><input type="checkbox" id="fastsetting" value="fast">Fast Mode</label>
 			  </div>
 				{% for setting in page.extra_settings %}
 					<div>
-						<label><input type="checkbox" id="{{ setting.id }}" name="{{ setting.id }}" value="{{ setting.id }}">{{ setting.label }}</label>
+						<label><input type="checkbox" id="{{ setting.id }}" class="opt" name="{{ setting.var }}">{{ setting.label }}</label>
 					</div>
 				{% endfor %}
+
+				{% if page.extra_settings %}
+				<div>
+			    <label><input type="checkbox" id="randomsetting" name="rand">Randomize Forms</label>
+			  </div>
+				{% endif %}
 				</fieldset>
 			</div>
 
-			</br>
 			<div>
 				<h1 id="correct-answer"></h1>
 				<h2 id="meaning"></h2>
 			</div>
-			
+
 		<div><a id="darkmode" href="javascript:void(0)">🌙</a></div>
 
 		<script src="/js/jquery-1.12.4.min.js"></script>

@@ -1,53 +1,58 @@
-function getAnswer(word, type, short=false, polite=false, neg=false) {
-  if ($('#shortsetting').is(':visible')) {short = $('#shortsetting').is(':checked')}
-  if ($('#politesetting').is(':visible')) {polite = $('#politesetting').is(':checked')}
-  if ($('#negsetting').is(':visible')) {neg = $('#negsetting').is(':checked')}
+function getAnswer(word, type, opts = {short:false, neg:false, polite:false}) {
+  rand = $('#randomsetting').is(':visible')
+	if(rand && $('#randomsetting').is(':checked')) {
+		for (opt in opts) {opts[opt] = Math.random() >= 0.5;}
+	}
+	else {
+		$(".opt").each(function( index ) {
+			opts[$(this).prop("name")] = $(this).is(':checked')
+		});
+	}
+
+	var randLabel = "Form"
+  if(opts.short) {randLabel = "Short " + randLabel}
+	if(opts.polite) {randLabel = "Polite " + randLabel}
+	else {randLabel = "Plain " + randLabel}
+	if(opts.neg) {randLabel = "Negative " + randLabel}
+	$('#random').text(randLabel);
+
   var endings = {く:"か", す:"さ", う:"わ", ぐ:"が", ぶ:"ば", つ:"た", む:"ま", ぬ:"な", る:"ら"};
 	stem = /(.*)(?!$)/.exec(word)[0];
 	if(type == "u") {
 		lastchar = /(.$)/.exec(word)[0];
-    if (short && polite && neg) {return stem + endings[lastchar] + "しません";}
-    else if (short && polite) {return stem + endings[lastchar] + "します";}
-    else if (polite && neg) {return stem + endings[lastchar] + "せません";}
-    else if (short && neg) {return stem + endings[lastchar] + "さない";}
-    else if (short) {return stem + endings[lastchar] + "す";}
-    else if (polite) {return stem + endings[lastchar] + "せます";}
-    else if (neg) {return stem + endings[lastchar] + "せない";}
+    if (opts.short && opts.polite && opts.neg) {return stem + endings[lastchar] + "しません";}
+    else if (opts.short && opts.polite) {return stem + endings[lastchar] + "します";}
+    else if (opts.polite && opts.neg) {return stem + endings[lastchar] + "せません";}
+    else if (opts.short && opts.neg) {return stem + endings[lastchar] + "さない";}
+    else if (opts.short) {return stem + endings[lastchar] + "す";}
+    else if (opts.polite) {return stem + endings[lastchar] + "せます";}
+    else if (opts.neg) {return stem + endings[lastchar] + "せない";}
 	  else {return stem + endings[lastchar] + "せる";}
 	}
 	else if (type == "ru") {
     var root = stem + "さ";
-    if (short && polite && neg) {return root + "しません";}
-    else if (short && polite) {return root + "します";}
-    else if (polite && neg) {return root + "せません";}
-    else if (short && neg) {return root + "さない";}
-    else if (short) {return root + "す";}
-    else if (polite) {return root + "せます";}
-    else if (neg) {return root + "せない";}
+    if (opts.short && opts.polite && opts.neg) {return root + "しません";}
+    else if (opts.short && opts.polite) {return root + "します";}
+    else if (opts.polite && opts.neg) {return root + "せません";}
+    else if (opts.short && opts.neg) {return root + "さない";}
+    else if (opts.short) {return root + "す";}
+    else if (opts.polite) {return root + "せます";}
+    else if (opts.neg) {return root + "せない";}
     else {return root + "せる";}
   }
 	else {
     var irrending = "せる";
-    if (short && polite && neg) {irrending = "しません";}
-    else if (short && polite) {irrending = "します";}
-    else if (polite && neg) {irrending = "せません";}
-    else if (short && neg) {irrending = "さない";}
-    else if (short) {irrending = "す";}
-    else if (polite) {irrending = "せます";}
-    else if (neg) {irrending = "せない";}
+    if (opts.short && opts.polite && opts.neg) {irrending = "しません";}
+    else if (opts.short && opts.polite) {irrending = "します";}
+    else if (opts.polite && opts.neg) {irrending = "せません";}
+    else if (opts.short && opts.neg) {irrending = "さない";}
+    else if (opts.short) {irrending = "す";}
+    else if (opts.polite) {irrending = "せます";}
+    else if (opts.neg) {irrending = "せない";}
 		if (word == "する") {return "さ" + irrending;}
 		else if (word == "くる") {return "こさ" + irrending;}
 	}
 }
 
-$('#shortsetting').change(function() {
-  answer = getAnswer(word.kana, word.type);
-});
-
-$('#politesetting').change(function() {
-  answer = getAnswer(word.kana, word.type);
-});
-
-$('#negsetting').change(function() {
-  answer = getAnswer(word.kana, word.type);
-});
+$('.opt').change(function() {answer = getAnswer(word.kana, word.type);});
+$('#randomsetting').change(function() {answer = getAnswer(word.kana, word.type);});

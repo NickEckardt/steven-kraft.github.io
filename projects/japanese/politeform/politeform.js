@@ -1,8 +1,21 @@
-function getAnswer(word, type, neg=false) {
-	if ($('#negsetting').is(':visible')) {neg = $('#negsetting').is(':checked')}
+function getAnswer(word, type, opts = {neg:false}) {
+	rand = $('#randomsetting').is(':visible')
+	if(rand && $('#randomsetting').is(':checked')) {
+		for (opt in opts) {opts[opt] = Math.random() >= 0.5;}
+	}
+	else {
+		$(".opt").each(function( index ) {
+			opts[$(this).prop("name")] = $(this).is(':checked')
+		});
+	}
+
+	var randLabel = "Polite Form"
+	if(opts.neg) {randLabel = "Negative " + randLabel}
+	$('#random').text(randLabel);
+
 	var endings = {く:"き", す:"し", う:"い", ぐ:"ぎ", ぶ:"び", つ:"ち", む:"み", ぬ:"に", る:"り"};
 	stem = /(.*)(?!$)/.exec(word)[0];
-  if (neg) {ending = "ません";}
+  if (opts.neg) {ending = "ません";}
   else {ending = "ます"}
 
 	if(type == "u") {
@@ -16,6 +29,5 @@ function getAnswer(word, type, neg=false) {
 	} // Irregular
 }
 
-$('#negsetting').change(function() {
-  answer = getAnswer(word.kana, word.type, this.checked);
-});
+$('.opt').change(function() {answer = getAnswer(word.kana, word.type);});
+$('#randomsetting').change(function() {answer = getAnswer(word.kana, word.type);});

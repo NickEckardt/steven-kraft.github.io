@@ -1,6 +1,20 @@
-function getAnswer(word, type, polite=false) {
-  if ($('#politesetting').is(':visible')) {polite = $('#politesetting').is(':checked')}
-  if (polite) {
+function getAnswer(word, type, opts = {polite:false}) {
+  rand = $('#randomsetting').is(':visible')
+	if(rand && $('#randomsetting').is(':checked')) {
+		for (opt in opts) {opts[opt] = Math.random() >= 0.5;}
+	}
+	else {
+		$(".opt").each(function( index ) {
+			opts[$(this).prop("name")] = $(this).is(':checked')
+		});
+	}
+
+	var randLabel = "Form"
+	if(opts.polite) {randLabel = "Polite " + randLabel}
+	else {randLabel = "Plain " + randLabel}
+	$('#random').text(randLabel);
+
+  if (opts.polite) {
     var endings = {く:"き", す:"し", う:"い", ぐ:"ぎ", ぶ:"び", つ:"ち", む:"み", ぬ:"に", る:"り"};
     var ending = "ません"
   } else {
@@ -11,7 +25,7 @@ function getAnswer(word, type, polite=false) {
 
 	if(type == "u") {
 		lastchar = /(.$)/.exec(word)[0];
-    if (word == "ある" && !polite) {
+    if (word == "ある" && !opts.polite) {
       $('#type').text("う-Verb (Godan) (Exception)");
       return "ない";
     }
@@ -23,12 +37,11 @@ function getAnswer(word, type, polite=false) {
 	else {
 		if (word == "する") {return "し" + ending;}
 		else if (word == "くる") {
-      if (polite) {return "き" + ending;}
+      if (opts.polite) {return "き" + ending;}
       else {return "こ" + ending;}
 	   } // Irregular
    }
 }
 
-$('#politesetting').change(function() {
-  answer = getAnswer(word.kana, word.type, this.checked);
-});
+$('.opt').change(function() {answer = getAnswer(word.kana, word.type);});
+$('#randomsetting').change(function() {answer = getAnswer(word.kana, word.type);});
