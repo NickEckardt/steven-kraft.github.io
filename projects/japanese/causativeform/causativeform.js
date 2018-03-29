@@ -10,6 +10,7 @@ function getAnswer(word, type, opts = {short:false, neg:false, polite:false, pas
 	}
 
 	var randLabel = "Form"
+  if(opts.passive) {randLabel = "Passive " + randLabel}
   if(opts.short) {randLabel = "Short " + randLabel}
 	if(opts.polite) {randLabel = "Polite " + randLabel}
 	else {randLabel = "Plain " + randLabel}
