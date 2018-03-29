@@ -36,7 +36,7 @@ function getAnswer(word, type, opts = {neg:false, polite:false}) {
 	else if (type == "ru") {return stem + ending;}
 	else {
 		if (opts.neg && !opts.polite && word == "くる") {return "こなければ";}
-		else if (opts.polite || neg){
+		else if (opts.polite || opts.neg){
 			if (word == "する") {return "し" + ending;}
 			else if (word == "くる") {return "き" + ending;}
 		}
