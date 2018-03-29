@@ -38,7 +38,10 @@ function getAnswer(word, type, opts = {short:false, neg:false, polite:false, pas
     return answer;
 	}
 	else if (type == "ru") {
-    if (opts.passive && opts.short) {return ""}
+    if (opts.passive && opts.short) {
+      newWord();
+      return ""
+    }
     var root = stem + "さ";
     if(opts.passive){
       if (opts.polite && opts.neg) {return root + "せられません";}
@@ -56,7 +59,10 @@ function getAnswer(word, type, opts = {short:false, neg:false, polite:false, pas
     else {return root + "せる";}
   }
 	else {
-    if (opts.passive && opts.short) {return ""}
+    if (opts.passive && opts.short) {
+      newWord();
+      return ""
+    }
     var irrending = "せる";
 
     if (opts.short && opts.polite && opts.neg) {irrending = "しません";}
