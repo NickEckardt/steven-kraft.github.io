@@ -22,15 +22,26 @@ body {
 main, footer {
   max-width: 650px;
   padding: 16px;
-  margin: 32px auto;
+  margin: 32px auto 0px;
+}
+
+footer {
+  margin: 0px auto 32px;
 }
 
 a, a:hover {
   color: $link;
+  text-decoration: none;
 }
 
 .icon {
   font-size: 3em;
   height: 54px;
+  vertical-align: top;
+}
+
+.social {
+  font-size: 2em;
+  height: 36px;
   vertical-align: top;
 }
