@@ -1,3 +1,14 @@
+---
+# Styling for Japanese Tools
+---
+
+//Colors
+$correct-color: #82e082;
+$incorrect-color: #eb4d4d;
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import '../css/bootstrap.min.css';
+
 div {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
@@ -9,11 +20,11 @@ div {
   margin: 16px;
 }
 
-#correct {color: #82e082;}
-#incorrect {color: #eb4d4d;}
+#correct {color: $correct-color;}
+#incorrect {color: $incorrect-color;}
 
 legend {
-  border-bottom:none;
+  border-bottom: none;
 	color: inherit;
 }
 
@@ -61,26 +72,25 @@ input[type="checkbox"] {
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	 background-clip: text;
-}
-
-#back:hover {
+  &:hover{
     background-color: #ddd;
     color: inherit;
+  }
 }
 
 #darkmode {
 	text-decoration: none;
-    padding: 0px 16px;
+  padding: 0px 16px;
 	font-size: 3em;
+}
+
+.dark {
+	background: black;
+	color: white;
 }
 
 @media only screen and (max-width: 500px) {
   #input-IME {
     font-size: 1em;
   }
-}
-
-body.dark {
-	background: black;
-	color: white;
 }
