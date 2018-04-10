@@ -102,3 +102,11 @@ $("html").click(function() {
 (function(wk) {
 	wk.bind(document.getElementById('input-IME'));
 })(window.wanakana);
+
+//Dark Mode
+function darkMode(){
+	if($("#dn").is(':checked')) {$("body").addClass("dark");}
+	else {$("body").removeClass("dark");}
+}
+$("#dn").change(darkMode)
+darkMode();

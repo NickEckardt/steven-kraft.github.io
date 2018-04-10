@@ -68,7 +68,7 @@ input[type="checkbox"] {
 	font-size: 4em;
 	background-color: #565656;
 	color: transparent;
-	text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.5);
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	 background-clip: text;
@@ -78,16 +78,7 @@ input[type="checkbox"] {
   }
 }
 
-#darkmode {
-	text-decoration: none;
-  padding: 0px 16px;
-	font-size: 3em;
-}
-
-.dark {
-	background: black;
-	color: white;
-}
+@import '_darkmode';
 
 @media only screen and (max-width: 500px) {
   #input-IME {
