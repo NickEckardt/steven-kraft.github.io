@@ -164,14 +164,6 @@ $('#randomsetting').change(function() {
 	}
 });
 
-//Dark Mode
-function darkMode(){
-	if($("#dn").is(':checked')) {$("body").addClass("dark");}
-	else {$("body").removeClass("dark");}
-}
-$("#dn").change(darkMode)
-darkMode();
-
 //Always Focus Textbox
 $("html").click(function() {
 	$('#input-IME').val($('#input-IME').val()).focus();

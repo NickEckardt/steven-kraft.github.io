@@ -15,3 +15,13 @@
   </label>
   <div class="mood-bg"></div>
 </div>
+
+<script>
+  //Dark Mode
+  function darkMode(){
+    if($("#dn").is(':checked')) {$("body").addClass("dark");}
+    else {$("body").removeClass("dark");}
+  }
+  $("#dn").change(darkMode)
+  darkMode();
+</script>
