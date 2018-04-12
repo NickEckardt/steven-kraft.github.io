@@ -1,6 +1,5 @@
 function getAnswer(word, type, opts = {neg:false}) {
-	rand = $('#randomsetting').is(':visible')
-	if(rand && $('#randomsetting').is(':checked')) {
+	if($('#randomsetting').length > 0 && $('#randomsetting').is(':checked')) {
 		for (opt in opts) {opts[opt] = Math.random() >= 0.5;}
 	}
 	else {

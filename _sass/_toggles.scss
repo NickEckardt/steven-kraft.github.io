@@ -1,0 +1,112 @@
+legend {
+  border-bottom: none;
+	color: inherit;
+}
+
+fieldset {
+  display: inline;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1em 0 !important;
+  -webkit-box-shadow:  0px 0px 0px 0px #000;
+          box-shadow:  0px 0px 0px 0px #000;
+}
+
+ul,
+li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.tg-list {
+	text-align: center;
+	align-items: center;
+}
+
+.tg-list-item {
+	margin: 0 1em;
+}
+
+h4 {
+	color: #777;
+	font-size: 1em;
+}
+
+.tgl {
+	display: none;
+
+	// add default box-sizing for this scope
+	&,
+  &:after,
+  &:before,
+	& *,
+  & *:after,
+  & *:before,
+	& + .tgl-btn {
+		box-sizing: border-box;
+		&::selection {
+			background: none;
+		}
+	}
+
+	+ .tgl-btn {
+		margin: auto;
+		outline: 0;
+		display: block;
+		width: 4em;
+		height: 2em;
+		position: relative;
+		cursor: pointer;
+    user-select: none;
+		&:after,
+    &:before {
+			position: relative;
+			display: block;
+			content: "";
+			width: 50%;
+			height: 100%;
+		}
+
+		&:after {
+			left: 0;
+		}
+
+		&:before {
+			display: none;
+		}
+	}
+
+	&:checked + .tgl-btn:after {
+		left: 50%;
+	}
+}
+
+// themes
+.tgl-light {
+	+ .tgl-btn {
+		background: #e0e0e0;
+		border-radius: 2em;
+		padding: 2px;
+		transition: all .4s ease;
+		&:after {
+			border-radius: 50%;
+			background: #fff;
+			transition: all .2s ease;
+		}
+	}
+
+	&:checked + .tgl-btn {
+		background: #098FE6;
+	}
+}
