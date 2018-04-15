@@ -1,81 +1,40 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Japanese Numbers</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-		<link href="../css/style.css" rel="stylesheet">
-		<style>
-			#number {font-size: 2em; margin: 16px;}
-			label {display: block;}
-		</style>
+---
+layout: quiz_master
+title: Japanese Numbers
+---
 
-	</head>
+<div>
+	<p id="number" style="font-size: 2em; margin: 16px;"></p>
+	<h3 id="english"></h3>
+</div>
 
-	<body>
-		<a href="/projects/japanese/" id="back">&#8249;</a>
-		<div class="wk-content">
-				<h1>Japanese Numbers</h1>
-				</br>
-				<p id="number"></p>
-				<div>
-					<h3 id="english"></h3>
-				</div>
-				<input id="input-IME" autofocus="true" autocapitalize="off" autocomplete="off" autocorrect="off" type="text" lang="ja">
+<div class="wk-content">
+		<input id="input-IME" autofocus="true" autocapitalize="off" autocomplete="off" autocorrect="off" type="text" lang="ja">
+</div>
+
+<div>
+	<h3><span id="correct">0</span>/<span id="incorrect">0</span>/<span id="percent">100%</span></h3>
+</div>
+
+<div>
+	<fieldset>
+	  <legend>Settings</legend>
+	  <div>
+			<label><input type="range"  id="digits" name="digits" value="4" min="1" max="8">Max Digits: <span id="digits-label">4</span></label>
 		</div>
+		<ul class="tg-list">
+			{% include _toggle.html id="fastsetting" label="Fast Mode" %}
+			{% include _toggle.html id="reversesetting" label="Reverse (Hiragana -> Number)" %}
+		</ul>
+	</fieldset>
+</div>
 
-			<div>
-				<h3 id="type"></h3>
-			</div>
+</br>
+<div>
+	<h1 id="correct-answer"></h1>
+	<h2 id="meaning"></h2>
+</div>
 
-			<div>
-				<h3><span id="correct">0</span>/<span id="incorrect">0</span>/<span id="percent">100%</span></h3>
-			</div>
-
-			<div>
-				<fieldset>
-			  <legend>Settings</legend>
-			  <div>
-					<label><input type="range"  id="digits" name="digits" value="4" min="1" max="8">Max Digits: <span id="digits-label">4</span></label>
-			    <label><input type="checkbox" id="fastsetting" name="fast">Fast Mode</label>
-			  </div>
-				<div>
-			    <label><input type="checkbox" id="reversesetting" name="reverse" value="reverse">Reverse (Hiragana -> Number)</label>
-			  </div>
-				</fieldset>
-			</div>
-
-			</br>
-			<div>
-				<h1 id="correct-answer"></h1>
-				<h2 id="meaning"></h2>
-			</div>
-
-			<div class="darkMode">
-			  <input type="checkbox" class="dn" id="dn"/>
-			  <label for="dn" class="toggle">
-			    <span class="toggle__handler">
-			      <span class="crater crater--1"></span>
-			      <span class="crater crater--2"></span>
-			      <span class="crater crater--3"></span>
-			    </span>
-			    <span class="star star--1"></span>
-			    <span class="star star--2"></span>
-			    <span class="star star--3"></span>
-			    <span class="star star--4"></span>
-			    <span class="star star--5"></span>
-			    <span class="star star--6"></span>
-			  </label>
-			  <div class="mood-bg"></div>
-			</div>
-
-		<script src="../../../js/jquery-3.3.1.min.js"></script>
-		<script src="../../../js/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="../js/wanakana.min.js"></script>
-		<script type="text/javascript" src="numbers.js"></script>
-		<script type="text/javascript" src="main.js"></script>
-	</body>
-
-</html>
+<script type="text/javascript" src="../js/wanakana.min.js"></script>
+<script type="text/javascript" src="numbers.js"></script>
+<script type="text/javascript" src="main.js"></script>
