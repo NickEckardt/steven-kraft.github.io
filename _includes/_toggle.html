@@ -1,0 +1,9 @@
+<li class="tg-list-item">
+  <h4>{{ include.label }}</h4>
+  {% if include.name %}
+    <input class="tgl tgl-light" id="{{ include.id }}" name="{{ include.name }}" type="checkbox"/>
+  {% else %}
+    <input class="tgl tgl-light" id="{{ include.id }}" type="checkbox"/>
+  {% endif %}
+  <label class="tgl-btn" for="{{ include.id }}"></label>
+</li>

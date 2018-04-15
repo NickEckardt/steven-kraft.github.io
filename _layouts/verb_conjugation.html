@@ -35,47 +35,23 @@
 				<legend>Settings</legend>
 					<ul class="tg-list">
 						{% for setting in page.extra_settings %}
-							<li class="tg-list-item inline">
+							<li class="tg-list-item">
 								<h4>{{ setting.label }}</h4>
 								<input class="tgl tgl-light opt" id="{{ setting.id }}" type="checkbox" name="{{ setting.var }}"/>
 								<label class="tgl-btn" for="{{ setting.id }}"></label>
 							</li>
 						{% endfor %}
 						<div></div>
-						<li class="tg-list-item inline">
-					    <h4>Randomize Forms</h4>
-					    <input class="tgl tgl-light" id="randomsetting" name="rand" type="checkbox"/>
-					    <label class="tgl-btn" for="randomsetting"></label>
-					  </li>
+						{% include _toggle.html id="randomsetting" label="Randomize Forms" %}
 					</ul>
 
 					<ul class="tg-list">
-						<li class="tg-list-item inline">
-					    <h4>Show Kanji</h4>
-					    <input class="tgl tgl-light" id="kanjisetting" type="checkbox"/>
-					    <label class="tgl-btn" for="kanjisetting"></label>
-					  </li>
-						<li class="tg-list-item inline">
-					    <h4>Show Furigana (Shift)</h4>
-					    <input class="tgl tgl-light" id="furisetting" type="checkbox"/>
-					    <label class="tgl-btn" for="furisetting"></label>
-					  </li>
-						<li class="tg-list-item inline">
-					    <h4>Hide Type</h4>
-					    <input class="tgl tgl-light" id="typesetting" type="checkbox"/>
-					    <label class="tgl-btn" for="typesetting"></label>
-					  </li>
+						{% include _toggle.html id="kanjisetting" label="Show Kanji" %}
+						{% include _toggle.html id="furisetting" label="Show Furigana (Shift)" %}
+						{% include _toggle.html id="typesetting" label="Hide Type" %}
 						<div></div>
-						<li class="tg-list-item inline">
-					    <h4>Show English</h4>
-					    <input class="tgl tgl-light" id="englishsetting" type="checkbox"/>
-					    <label class="tgl-btn" for="englishsetting"></label>
-					  </li>
-						<li class="tg-list-item inline">
-					    <h4>Fast Mode</h4>
-					    <input class="tgl tgl-light" id="fastsetting" type="checkbox"/>
-					    <label class="tgl-btn" for="fastsetting"></label>
-					  </li>
+						{% include _toggle.html id="englishsetting" label="Show English" %}
+						{% include _toggle.html id="fastsetting" label="Fast Mode" %}
 					</ul>
 				</fieldset>
 			</div>

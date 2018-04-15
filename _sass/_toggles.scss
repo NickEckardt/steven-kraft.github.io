@@ -25,10 +25,6 @@ li {
 	padding: 0;
 }
 
-.inline {
-  display: inline-block;
-}
-
 .tg-list {
 	text-align: center;
 	align-items: center;
@@ -36,6 +32,7 @@ li {
 
 .tg-list-item {
 	margin: 0 1em;
+	display: inline-block;
 }
 
 h4 {
