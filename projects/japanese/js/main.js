@@ -82,7 +82,8 @@ function kanjimode(active) {
 	if (active) {
 		$('#kanjisetting').prop('checked', true);
 		kanji = true;
-		$('#word').html(`<ruby>${word.kanji}<ruby>`);
+		var furi_word = word.kanji.replace("<rt>", "<rp>(</rp><rt>").replace("</rt>", "</rt><rp>)</rp>")
+		$('#word').html(`<ruby>${furi_word}<ruby>`);
 		furimode(furi);
 	} else {
 		$('#kanjisetting').prop('checked', false);
