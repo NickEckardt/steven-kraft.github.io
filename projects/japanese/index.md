@@ -25,7 +25,7 @@ title: Japanese Projects
 * More Coming Soon
 
 ##### Other
-* [Watch Japan](http://watchjapan.steven-kraft.com/)
+* [Watch Japan](https://watchjapan.steven-kraft.com/)
 
 <br><br>
 

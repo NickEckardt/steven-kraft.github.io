@@ -2,6 +2,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - bin
+  - vendor
 
 defaults:
   -
