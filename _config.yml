@@ -3,6 +3,7 @@ exclude:
   - Gemfile.lock
   - bin
   - vendor
+  - script
 
 defaults:
   -
