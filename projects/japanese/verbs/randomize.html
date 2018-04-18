@@ -1,0 +1,55 @@
+---
+layout: quiz_master
+title: Random Verb Conjugation Practice
+permalink: /projects/japanese/randomize/
+---
+
+<div>
+	<p id="word"></p>
+	<h3 id="form"></h3>
+	<h3 id="english"></h3>
+</div>
+
+<div class="wk-content">
+		<input id="input-IME">
+</div>
+
+<div>
+	<h3 id="type"></h3>
+	<h3><span id="correct">0</span>/<span id="incorrect">0</span>/<span id="percent">100%</span></h3>
+</div>
+
+<div>
+	<fieldset>
+	<legend>Settings</legend>
+		<ul class="tg-list">
+			{% for setting in page.extra_settings %}
+				<li class="tg-list-item">
+					<h4>{{ setting.label }}</h4>
+					<input class="tgl tgl-light opt" id="{{ setting.id }}" type="checkbox" name="{{ setting.var }}"/>
+					<label class="tgl-btn" for="{{ setting.id }}"></label>
+				</li>
+			{% endfor %}
+			<div></div>
+		</ul>
+
+		<ul class="tg-list">
+			{% include _toggle.html id="kanjisetting" label="Show Kanji" %}
+			{% include _toggle.html id="furisetting" label="Show Furigana (Shift)" %}
+			{% include _toggle.html id="typesetting" label="Hide Type" %}
+			<div></div>
+			{% include _toggle.html id="englishsetting" label="Show English" %}
+			{% include _toggle.html id="fastsetting" label="Fast Mode" %}
+		</ul>
+	</fieldset>
+</div>
+
+<div>
+	<h1 id="correct-answer"></h1>
+	<h2 id="meaning"></h2>
+</div>
+
+<script type="text/javascript" src="/projects/japanese/js/wanakana.min.js"></script>
+<script type="text/javascript" src="/projects/japanese/js/verbs.js"></script>
+<script type="text/javascript" src="/projects/japanese/js/verbs/randomize.js"></script>
+<script type="text/javascript" src="/projects/japanese/js/main.js"></script>

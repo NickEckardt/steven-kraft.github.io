@@ -17,6 +17,7 @@ title: Japanese Projects
 * [Potential Form](./potentialform)
 * [Provisional Form](./provisionalform)
 * [Volitional Form](./volitionalform)
+* [Randomized Forms](./randomize) (WIP)
 
 ##### Numbers & Counters
 * [Days of the Month](./days)
