@@ -21,18 +21,12 @@ permalink: /projects/japanese/randomize/
 
 <div>
 	<fieldset>
+		<legend>Forms</legend>
+		<ul id="formsettings" class="tg-list"></ul>
+	</fieldset>
+	<div></div>
+	<fieldset>
 	<legend>Settings</legend>
-		<ul class="tg-list">
-			{% for setting in page.extra_settings %}
-				<li class="tg-list-item">
-					<h4>{{ setting.label }}</h4>
-					<input class="tgl tgl-light opt" id="{{ setting.id }}" type="checkbox" name="{{ setting.var }}"/>
-					<label class="tgl-btn" for="{{ setting.id }}"></label>
-				</li>
-			{% endfor %}
-			<div></div>
-		</ul>
-
 		<ul class="tg-list">
 			{% include _toggle.html id="kanjisetting" label="Show Kanji" %}
 			{% include _toggle.html id="furisetting" label="Show Furigana (Shift)" %}

@@ -12,23 +12,42 @@ var conj = {
   "Volitional" : volitionalform
 };
 
+var count = 0
+for (var c in conj) {
+  var item = "<li class=\"tg-list-item\"><h4>" + c + "</h4>\n"
+  item += "<input class=\"tgl tgl-light form\" id=\"" + c + "\" type=\"checkbox\" checked/>";
+  item += "\n<label class=\"tgl-btn\" for=\"" + c + "\"></label></li>";
+  if(count == 3){
+    item += "<div></div>";
+    count = 0;
+  } else {count++;}
+  $("#formsettings").append(item);
+}
+
 var randLabel = "";
+var form = "";
+var checked_forms = []
+updateCheckedForms()
 
 function getAnswer(word, type){
-  var form = randomForm(conj);
+  form = checked_forms[Math.floor(Math.random()*checked_forms.length)];
   var answer = conj[form](word, type);
   $('#form').text(form + " " + randLabel);
   return answer;
 }
 
-function randomForm(obj) {
-    var result;
-    var count = 0;
-    for (var prop in obj)
-        if (Math.random() < 1/++count)
-           result = prop;
-    return result;
+function updateCheckedForms(){
+  checked_forms = []
+  for (var prop in conj){
+    if ($("#" + prop).is(':checked')){checked_forms.push(prop);}
+  }
+  if(checked_forms.length == 0) {checked_forms = Object.keys(conj);}
 }
+
+$('.form').change(function() {
+  updateCheckedForms()
+  if(!checked_forms.includes(form)) {answer = getAnswer(word.kana, word.type);}
+});
 
 function causativeform(word, type, opts = {short:false, neg:false, polite:false, passive:false}) {
 	for (opt in opts) {opts[opt] = Math.random() >= 0.5;}
