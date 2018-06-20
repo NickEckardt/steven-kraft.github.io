@@ -19,7 +19,12 @@ permalink: /projects/japanese/randomize/
 	<h3><span id="correct">0</span>/<span id="incorrect">0</span>/<span id="percent">100%</span></h3>
 </div>
 
-<div>
+<div id="feedback">
+	<h1 id="correct-answer"></h1>
+	<h2 id="meaning"></h2>
+</div>
+
+<div id="settings">
 	<fieldset>
 		<legend>Forms</legend>
 		<ul id="formsettings" class="tg-list"></ul>
@@ -36,11 +41,6 @@ permalink: /projects/japanese/randomize/
 			{% include _toggle.html id="fastsetting" label="Fast Mode" %}
 		</ul>
 	</fieldset>
-</div>
-
-<div>
-	<h1 id="correct-answer"></h1>
-	<h2 id="meaning"></h2>
 </div>
 
 <script type="text/javascript" src="/projects/japanese/js/wanakana.min.js"></script>

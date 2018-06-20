@@ -22,6 +22,7 @@ function checkAnswer(answer) {
 		// Wait for enter key to be pressed again before continuing to next word
 		$('#input-IME').val("")
 		$('#input-IME').css({ backgroundColor: "white" });
+		$('#feedback').removeClass();
 		newWord();
 		wait = false;
 		return;
@@ -34,18 +35,17 @@ function checkAnswer(answer) {
 	}
 	else if ((answer.includes($('#input-IME').val()) && Array.isArray(answer)) || answer == $('#input-IME').val()) {
 		$('#input-IME').css({ backgroundColor: "#82e082" });
+		$('#feedback').addClass("correct")
 		correct += 1;
 		$('#correct-answer').text("");
 		$('#correct-answer').hide();
 	} else {
 		$('#input-IME').css({ backgroundColor: "#eb4d4d" });
-		if ($('#input-IME').val() == "いぬ") {$('#correct-answer').html("<img src='../img/dog.jpg'/>").fadeIn()}
-		else {
-			if (typeof answer == "string") {ansMessage = answer;}
-			else {ansMessage = answer.join(" or ");}
-			$('#correct-answer').text(`Last Answer: ${ansMessage}`).fadeIn();
-			incorrect += 1;
-		}
+		$('#feedback').addClass("incorrect")
+		if (typeof answer == "string") {ansMessage = answer;}
+		else {ansMessage = answer.join(" or ");}
+		$('#correct-answer').text(`Last Answer: ${ansMessage}`).fadeIn();
+		incorrect += 1;
 	}
 
 	if (lastmeaning) {

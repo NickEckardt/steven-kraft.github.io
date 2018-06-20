@@ -15,7 +15,7 @@ div, h1 {
   margin: auto;
 }
 
-h1 {
+#heading {
   margin-top: 0.5em;
 }
 
@@ -26,6 +26,13 @@ h1 {
 
 #correct {color: $correct-color;}
 #incorrect {color: $incorrect-color;}
+
+#feedback {
+  padding: 1em;
+  margin: 1em 0;
+  &.correct{background-color: lighten($correct-color, 15%);}
+  &.incorrect{background-color: lighten($incorrect-color, 15%);}
+}
 
 #input-IME {
   font-size: 2em;
@@ -61,9 +68,11 @@ h1 {
 @import '_darkmode';
 
 @media only screen and (max-width: 500px) {
-  #input-IME {
-    font-size: 1em;
-  }
+  #input-IME {font-size: 6vw;}
+  #settings {margin: 0 1em;}
+  #correct-answer {font-size: 6vw;}
+  #meaning {font-size: 5vw;}
+  body{min-width:225px;}
 }
 
 @import '_toggles';

@@ -15,7 +15,12 @@ title: Japanese Time
 		<h3><span id="correct">0</span>/<span id="incorrect">0</span>/<span id="percent">100%</span></h3>
 	</div>
 
-	<div>
+	<div id="feedback">
+		<h1 id="correct-answer"></h1>
+		<h2 id="meaning"></h2>
+	</div>
+
+	<div id="settings">
 		<fieldset>
 	  <legend>Settings</legend>
 		<ul class="tg-list">
@@ -23,12 +28,6 @@ title: Japanese Time
 			{% include _toggle.html id="fastsetting" label="Fast Mode" %}
 		</ul>
 		</fieldset>
-	</div>
-
-	</br>
-	<div>
-		<h1 id="correct-answer"></h1>
-		<h2 id="meaning"></h2>
 	</div>
 
 <script type="text/javascript" src="../js/wanakana.min.js"></script>

@@ -16,7 +16,12 @@ title: Japanese Numbers
 	<h3><span id="correct">0</span>/<span id="incorrect">0</span>/<span id="percent">100%</span></h3>
 </div>
 
-<div>
+<div id="feedback">
+	<h1 id="correct-answer"></h1>
+	<h2 id="meaning"></h2>
+</div>
+
+<div id="settings">
 	<fieldset>
 	  <legend>Settings</legend>
 	  <div>
@@ -27,12 +32,6 @@ title: Japanese Numbers
 			{% include _toggle.html id="reversesetting" label="Reverse (Hiragana 🡪 Number)" %}
 		</ul>
 	</fieldset>
-</div>
-
-</br>
-<div>
-	<h1 id="correct-answer"></h1>
-	<h2 id="meaning"></h2>
 </div>
 
 <script type="text/javascript" src="../js/wanakana.min.js"></script>
