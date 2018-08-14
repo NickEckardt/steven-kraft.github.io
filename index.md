@@ -6,7 +6,9 @@ title: Home
 
 Hi, my name is **Steven Kraft**. Welcome to my personal website. I am a programmer with experience in many languages. You can view many of my programming projects and contributions on my [Github](https://github.com/steven-kraft).
 
-Also, check out my [Japanese Projects](./projects/japanese)!
+I am also looking for work! Here is my [resume](https://drive.google.com/file/d/1-T6NOdFSempol2D9dPerco2L04VV84-L/view?usp=sharing) if you are looking to hire.
+
+Check out my [Japanese Projects](./projects/japanese)!
 
 ## Skills
 <i class="devicon-python-plain colored icon" title="Python"></i>
@@ -23,7 +25,7 @@ Also, check out my [Japanese Projects](./projects/japanese)!
 
 ## Certificates and Accomplishments
 
-- Associate of Science in Computer Science at University of the People
+- Bachelor of Science in Computer Science at University of the People
 - <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/CUHVYLSWDDAD" target="_blank">Google IT Support Professional Certificate</a>
 - <a href="https://www.coursera.org/account/accomplishments/certificate/T45226SURF2R" target="_blank">Rails with Active Record and Action Pack Certificate</a>
 - JLPT N5
